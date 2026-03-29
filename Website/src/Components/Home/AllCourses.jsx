@@ -1,65 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Calendar, ArrowRight } from 'lucide-react';
-
-const courses = [
-  {
-    id: 1,
-    name: "IIT-JEE Ultimate Batch",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=800&auto=format&fit=crop",
-    subjects: ["Physics", "Chemistry", "Mathematics"],
-    classesPerWeek: 6,
-    price: "$499",
-    tag: "Popular",
-  },
-  {
-    id: 2,
-    name: "NEET FastTrack 2024",
-    image: "https://images.unsplash.com/photo-1576086213369-97a306dca1c5?q=80&w=800&auto=format&fit=crop",
-    subjects: ["Biology", "Physics", "Chemistry"],
-    classesPerWeek: 5,
-    price: "$450",
-    tag: "New",
-  },
-  {
-    id: 3,
-    name: "Foundation (Class 9-10)",
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop",
-    subjects: ["Science", "Maths", "English", "SST"],
-    classesPerWeek: 4,
-    price: "$299",
-    tag: null,
-  },
-  {
-    id: 4,
-    name: "Advanced Web Development",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop",
-    subjects: ["React.js", "Tailwind", "Node.js"],
-    classesPerWeek: 3,
-    price: "$199",
-    tag: "Trending",
-  },
-  {
-    id: 5,
-    name: "UPSC Civil Services Prep",
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop",
-    subjects: ["History", "Polity", "Geography", "CSAT"],
-    classesPerWeek: 6,
-    price: "$599",
-    tag: null,
-  },
-  {
-    id: 6,
-    name: "Digital Marketing Pro",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
-    subjects: ["SEO", "SMM", "Ads", "Analytics"],
-    classesPerWeek: 2,
-    price: "$150",
-    tag: "Sale",
-  },
-];
+import { courses } from '../../Data/Courses';
+import { useNavigate } from 'react-router-dom';
 
 const CourseCard = ({ course, index }) => {
+
+  const navigate = useNavigate()
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -70,9 +18,9 @@ const CourseCard = ({ course, index }) => {
     >
       {/* Image Container */}
       <div className="relative overflow-hidden h-52">
-        {course.tag && (
+        {courses.tag && (
           <span className="absolute top-4 left-4 z-20 bg-[var(--color-primary)] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
-            {course.tag}
+            Available
           </span>
         )}
         {/* Subtle Gradient Overlay */}
@@ -95,13 +43,15 @@ const CourseCard = ({ course, index }) => {
           <div className="flex items-start gap-2">
             <CheckCircle2 size={18} className="text-[var(--color-primary)] mt-1 shrink-0" />
             <p className="text-[var(--text-secondary)] text-sm">
-              <span className="font-semibold text-gray-700">Subjects:</span> {course.subjects.join(", ")}
+              <span className="font-semibold text-gray-700">Subjects:</span> 
+              {course.subjects.map((subject) => `${subject.title} , `)
+              }
             </p>
           </div>
           <div className="flex items-start gap-2">
             <Calendar size={18} className="text-[var(--color-primary)] mt-1 shrink-0" />
             <p className="text-[var(--text-secondary)] text-sm">
-              <span className="font-semibold text-gray-700">Classes:</span> {course.classesPerWeek} days/week
+              <span className="font-semibold text-gray-700">Classes:</span> {course.classesPerWeek}
             </p>
           </div>
         </div>
@@ -112,7 +62,9 @@ const CourseCard = ({ course, index }) => {
             <span className="block text-xs text-gray-400 uppercase font-bold tracking-wider">Course Fee</span>
             <span className="text-2xl font-black text-[var(--color-primary)]">{course.price}</span>
           </div>
-          <button className="flex items-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white px-5 py-2.5 rounded-[var(--radius-md)] font-bold transition-all duration-300 active:scale-95 shadow-sm hover:shadow-md">
+          <button 
+          onClick={() => navigate(`/course/${course.id}` , {state : {course : course}})}
+          className="flex items-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white px-5 py-2.5 rounded-[var(--radius-md)] font-bold transition-all duration-300 active:scale-95 shadow-sm hover:shadow-md">
             View Details
             <ArrowRight size={16} />
           </button>

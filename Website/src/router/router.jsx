@@ -4,6 +4,7 @@ import Home from '../Components/Home/Home'
 import AboutUs from '../Components/AboutUs'
 import ContactUs from '../Components/ContactUs'
 import GalleryPage from '../Components/GalleryPage'
+import CourseDetailPage from '../Components/CourseDetailPage'
 
 
 export const router = createBrowserRouter([
@@ -15,6 +16,7 @@ export const router = createBrowserRouter([
             {path : '/about' , element : <AboutUs />},
             {path : '/contact' , element : <ContactUs />},
             {path : '/gallery' , element : <GalleryPage />},
+            {path : '/course/:id' , element : <CourseDetailPage />},
         ]
     }
 ])

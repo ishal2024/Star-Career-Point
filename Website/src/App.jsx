@@ -1,28 +1,44 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import Navbar from './Components/Header'
-import Hero from './Components/Home/Hero'
-import AllCourses from './Components/Home/AllCourses'
-import HighlightBanner from './Components/Home/HighlightBanner'
-import AllFacilities from './Components/Home/AllFacilities'
 import Footer from './Components/Footer'
-import AboutUs from './Components/AboutUs'
-import ContactUs from './Components/ContactUs'
-import CourseDetailPage from './Components/CourseDetailPage'
-import GalleryPage from './Components/GalleryPage'
 import { Outlet } from 'react-router-dom'
+import EnquireModal from './Components/EnquireModal'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
 
+  const [isEnquireNowFormOpen, setEnquireNowFormOpen] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setEnquireNowFormOpen(true)
+    }, 3000);
+  }, [])
 
   return (
     <>
+      {isEnquireNowFormOpen && <EnquireModal
+        isOpen={isEnquireNowFormOpen}
+        onClose={() => setEnquireNowFormOpen(false)}
+        subject={"New Enquiry"}
+      />}
+
+
       <Navbar />
       <Outlet />
       <Footer />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        theme='dark'
+      />
     </>
   )
 }

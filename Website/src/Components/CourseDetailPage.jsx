@@ -10,33 +10,21 @@ import {
   ArrowRight,
   UserCheck
 } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import EnquireModal from './EnquireModal';
 
 const CourseDetailPage = ({ courseData }) => {
   // State for Accordion logic
   const [openSubjectId, setOpenSubjectId] = useState(0);
+  const [isEnquireFormOpen, setEnquireFormOpen] = useState(false)
+  const navigate = useNavigate()
 
-  // Fallback data for demonstration/structure
-  const data = courseData || {
-    name: "Advanced Medical Entrance (NEET) Prep",
-    image: "https://imgs.search.brave.com/0wtdJFwJTNSw8tpB5buzU_u-8LDXZMYD79KpWxn33Ws/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMjQv/MDY3LzM5NC9zbWFs/bC9pbGx1bWluYXRl/ZC1oaWdoLXNjaG9v/bC1jaGVtaXN0cnkt/bGFib3JhdG9yeS13/aXRoLXN0dWRlbnRz/LWNvbmR1Y3Rpbmct/ZXhwZXJpbWVudHMt/YWktZ2VuZXJhdGVk/LWZyZWUtcGhvdG8u/anBn",
-    description: `Our comprehensive NEET Preparation course is designed by top-tier medical professionals and expert faculty. We provide an in-depth understanding of Biology, Physics, and Chemistry, specifically tailored for the latest exam patterns.
+  const location = useLocation()
+  const data = location?.state?.course
 
-    The curriculum focuses on conceptual clarity followed by rigorous testing. Students get access to exclusive modules, previous year solved papers, and daily practice sets. Our methodology ensures that every student builds the stamina and accuracy required to clear one of the toughest entrance exams in the country.`,
-    price: "₹45,000",
-    duration: "1 Year Program",
-    classesPerWeek: "5 Days a Week",
-    subjects: [
-      { id: 0, title: "Biology & Genetics", topics: ["Cell Structure", "Plant Physiology", "Human Anatomy", "Genetics & Evolution"] },
-      { id: 1, title: "Organic Chemistry", topics: ["Hydrocarbons", "Biomolecules", "Polymers", "Reaction Mechanisms"] },
-      { id: 2, title: "Modern Physics", topics: ["Atoms & Nuclei", "Dual Nature of Matter", "Semiconductors", "Wave Optics"] }
-    ],
-    faculty: [
-      { name: "Dr. Sameer Khan", qualification: "MBBS, MD (AIIMS)", subject: "Biology Head" },
-      { name: "Prof. Ritu Sharma", qualification: "M.Sc. Organic Chemistry", subject: "Chemistry Expert" },
-      { name: "Er. Vikas Gupta", qualification: "B.Tech (IIT Delhi)", subject: "Physics Lead" },
-      { name: "Dr. Ananya Roy", qualification: "10+ Years Experience", subject: "Botany Specialist" }
-    ]
-  };
+  if(!data)
+    return navigate('/')
+
 
   const toggleAccordion = (id) => {
     setOpenSubjectId(openSubjectId === id ? null : id);
@@ -44,6 +32,12 @@ const CourseDetailPage = ({ courseData }) => {
 
   return (
     <main className="min-h-screen bg-white">
+
+      {isEnquireFormOpen && <EnquireModal
+      isOpen={isEnquireFormOpen}
+      onClose={() => setEnquireFormOpen(false)}
+      subject={data.name}
+       />}
       
       {/* --- SECTION 1: COURSE HEADER (30vh) --- */}
       <section className="relative h-[35vh] md:h-[45vh] w-full overflow-hidden flex items-center">
@@ -107,7 +101,9 @@ const CourseDetailPage = ({ courseData }) => {
                   <span className="font-bold italic">Morning/Evening</span>
                 </div>
 
-                <button className="w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white font-black py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 active:scale-95 shadow-lg shadow-red-100 mt-4 group">
+                <button
+                onClick={() => setEnquireFormOpen(true)}
+                 className="w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white font-black py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 active:scale-95 shadow-lg shadow-red-100 mt-4 group">
                   ENQUIRE NOW <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -159,8 +155,8 @@ const CourseDetailPage = ({ courseData }) => {
                       <div className="p-6 bg-white border-t border-gray-100">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                           {subject.topics.map((topic, i) => (
-                            <div key={i} className="flex items-center gap-2 text-gray-600">
-                              <BookOpen size={16} className="text-red-300" /> {topic}
+                            <div key={i} className="flex items-center gap-2 ">
+                              <BookOpen size={16} className="text-red-600" /> {topic}
                             </div>
                           ))}
                         </div>
