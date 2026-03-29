@@ -1,0 +1,60 @@
+:root {
+  /* 🔴 Primary Red Shades */
+  --color-primary: #e53935;
+  --color-primary-dark: #c62828;
+  --color-primary-light: #ff6f61;
+  --color-primary-hover: #d32f2f;
+
+  /* ⚪ Neutral Colors */
+  --color-white: #ffffff;
+  --color-black: #111111;
+
+  /* 🌫️ Gray Scale */
+  --color-gray-100: #f8f9fa;
+  --color-gray-200: #e9ecef;
+  --color-gray-300: #dee2e6;
+  --color-gray-400: #ced4da;
+  --color-gray-500: #adb5bd;
+  --color-gray-600: #6c757d;
+  --color-gray-700: #495057;
+  --color-gray-800: #343a40;
+  --color-gray-900: #212529;
+
+  /* 🎯 Backgrounds */
+  --bg-primary: var(--color-primary);
+  --bg-secondary: #fff5f5;
+  --bg-dark: #1a1a1a;
+
+  /* 📝 Text Colors */
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-light: #ffffff;
+  --text-muted: #adb5bd;
+
+  /* 🟢 Success / 🔵 Info / 🟡 Warning */
+  --color-success: #28a745;
+  --color-info: #17a2b8;
+  --color-warning: #ffc107;
+  --color-danger: #dc3545;
+
+  /* 🔘 Borders */
+  --border-light: #e9ecef;
+  --border-dark: #dee2e6;
+
+  /* 🌟 Shadow */
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+  /* 🔥 Gradient */
+  --gradient-primary: linear-gradient(135deg, #e53935, #b71c1c);
+
+  /* 🔘 Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* ⏱️ Transition */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+}
