@@ -29,7 +29,7 @@ const Hero = () => {
     const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
   }, []);
-
+ 
   return (
     <section className="relative h-[40vh] md:h-[50vh] w-full overflow-hidden mt-16 md:mt-18">
       {slides.map((slide, index) => (
