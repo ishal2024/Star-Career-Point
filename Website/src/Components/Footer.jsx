@@ -7,7 +7,8 @@ import {
   
   MessageCircle, // Used for WhatsApp
   GraduationCap,
-  ChevronRight
+  ChevronRight,
+  Mail
 } from 'lucide-react';
 
 const Footer = () => {
@@ -55,18 +56,26 @@ const Footer = () => {
               <div className="bg-white text-[var(--color-primary)] p-2 rounded-lg group-hover:rotate-12 transition-transform duration-300">
                 <GraduationCap size={32} />
               </div>
-              <span className="text-2xl font-black tracking-tight">EduBoost Coaching</span>
+              <span className="text-2xl font-black tracking-tight">StarPoint Classes</span>
             </div>
 
             {/* Contact Info */}
             <div className="space-y-4 text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start space-x-3 text-red-50 hover:text-white transition-colors cursor-pointer">
                 <MapPin size={20} className="shrink-0" />
-                <p className="text-sm">123 Learning Street, Knowledge Hub, New Delhi, 110001</p>
+                <p className="text-sm">Dharampal Complex, Near Small Red Light, Mahipalpur, New Delhi., 110037</p>
               </div>
               <div className="flex items-center justify-center md:justify-start space-x-3 text-red-50 hover:text-white transition-colors cursor-pointer">
                 <Phone size={20} className="shrink-0" />
-                <p className="text-sm font-semibold">+91 98765 43210</p>
+                <p className="text-sm font-semibold">+91 98996 08180</p>
+              </div>
+              <div className="flex items-center justify-center md:justify-start space-x-3 text-red-50 hover:text-white transition-colors cursor-pointer">
+                <Phone size={20} className="shrink-0" />
+                <p className="text-sm font-semibold">+91 82874 11945</p>
+              </div>
+              <div className="flex items-center justify-center md:justify-start space-x-3 text-red-50 hover:text-white transition-colors cursor-pointer">
+                <Mail size={20} className="shrink-0" />
+                <p className="text-sm font-semibold"></p>
               </div>
             </div>
 

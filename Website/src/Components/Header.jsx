@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, BookOpen, GraduationCap, Code, Microscope } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import EnquireModal from './EnquireModal';
+import { courses } from '../Data/Courses';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,18 +10,15 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isEnquireFormOpen, setEnquireFormOpen] = useState(false)
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const courses = [
-    { name: 'IIT-JEE Prep', icon: <GraduationCap size={18} /> },
-    { name: 'NEET Foundation', icon: <Microscope size={18} /> },
-    { name: 'Web Development', icon: <Code size={18} /> },
-    { name: 'Board Exams', icon: <BookOpen size={18} /> },
-  ];
+
 
   return (
     <header
@@ -36,16 +34,22 @@ const Header = () => {
         <div className="flex justify-between items-center">
 
           {/* Logo */}
-          <div className="flex items-center space-x-2 text-white font-bold text-2xl cursor-pointer">
+          <div 
+          onClick={() => navigate('/')}
+          className="flex items-center space-x-2 text-white font-bold text-2xl cursor-pointer">
             <div className="bg-white text-[var(--color-primary)] p-1 rounded-md">
               <GraduationCap size={28} />
             </div>
-            <span>EduBoost</span>
+            <span>StarPoint Classes</span>
           </div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8 text-white font-medium">
-            <NavLink to={'/'} className="hover:text-red-200 transition-colors">Home</NavLink>
+            <NavLink to={'/'} className={({ isActive }) =>
+              isActive
+                ? "px-3 py-2 rounded-2xl bg-white text-red-600 border-b border-red-700"
+                : "hover:text-red-200 transition-colors"
+            }>Home</NavLink>
 
             {/* Courses Dropdown */}
             <div className="relative group">
@@ -53,28 +57,61 @@ const Header = () => {
                 <span>Courses</span>
                 <ChevronDown size={16} className="group-hover:rotate-180 transition-transform duration-300" />
               </button>
-
-              <div className="absolute top-full -left-4 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+              <div className="absolute top-full -left-4 w-56 max-h-64 overflow-y-auto scroll-smooth pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
                 <div className="bg-white rounded-[var(--radius-md)] shadow-[var(--shadow-lg)] py-2 overflow-hidden">
                   {courses.map((course, idx) => (
-                    <NavLink key={idx} href="#" className="flex items-center space-x-3 px-4 py-3 text-gray-800 hover:bg-red-50 hover:text-[var(--color-primary)] transition-colors">
-                      {course.icon}
-                      <span>{course.name}</span>
+                    <NavLink
+                      to={`/course/${course.id}`}
+                      state={{ course }}
+                      key={idx} className="flex items-center space-x-3 px-4 py-3 text-gray-800 hover:bg-red-50 hover:text-[var(--color-primary)] transition-colors">
+                      <span
+                        className='text-[14px]'>{course.name}</span>
                     </NavLink>
                   ))}
                 </div>
               </div>
             </div>
-            <NavLink to={'/gallery'} className="hover:text-red-200 transition-colors">Gallery</NavLink>
-            <NavLink to={'/about'} className="hover:text-red-200 transition-colors">About Us</NavLink>
-            <NavLink to={'/contact'} className="hover:text-red-200 transition-colors">Contact</NavLink>
+            {/* <NavLink to={'/gallery'} className="hover:text-red-200 transition-colors">Gallery</NavLink> */}
+            <NavLink
+              to="/gallery"
+              onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 py-2 rounded-2xl bg-white text-red-600 border-b border-red-700"
+                  : "hover:text-red-200 transition-colors"
+              }
+            >
+              Gallery
+            </NavLink>
+            <NavLink
+              to="/about"
+              onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 py-2 rounded-2xl bg-white text-red-600 border-b border-red-700"
+                  : "hover:text-red-200 transition-colors"
+              }
+            >
+              About Us
+            </NavLink>
+            <NavLink
+              to="/contact"
+              onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 py-2 rounded-2xl bg-white text-red-600 border-b border-red-700"
+                  : "hover:text-red-200 transition-colors"
+              }
+            >
+              Contact Us
+            </NavLink>
           </nav>
 
           {/* Right CTA */}
           <div className="hidden md:block">
-            <button 
-            onClick={() => setEnquireFormOpen(true)}
-            className="bg-white text-[var(--color-primary)] font-bold px-6 py-2 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 active:scale-95 shadow-md">
+            <button
+              onClick={() => setEnquireFormOpen(true)}
+              className="bg-white text-[var(--color-primary)] font-bold px-6 py-2 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105 active:scale-95 shadow-md">
               Enroll Now
             </button>
           </div>
@@ -95,8 +132,17 @@ const Header = () => {
           </div>
 
           <nav className="flex flex-col space-y-4 text-white text-xl">
-            <NavLink to={'/'} className="border-b border-red-700 pb-2">Home</NavLink>
-
+           <NavLink
+              to="/"
+              onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "flex justify-center py-3 rounded-2xl bg-white text-red-600 border-b border-red-700"
+                  : "border-b border-red-700 pb-2"
+              }
+            >
+              <span>Home</span>
+            </NavLink>
             {/* Mobile Accordion */}
             <div>
               <button
@@ -106,20 +152,55 @@ const Header = () => {
                 <span>Courses</span>
                 <ChevronDown className={`transition-transform ${isCoursesOpen ? 'rotate-180' : ''}`} />
               </button>
-              <div className={`overflow-hidden transition-all duration-300 ${isCoursesOpen ? 'max-h-60 mt-4 ml-4' : 'max-h-0'}`}>
+              <div className={`overflow-y-auto transition-all duration-300 ${isCoursesOpen ? 'h-60 mt-4 ml-4' : 'max-h-0'}`}>
                 {courses.map((course, idx) => (
-                  <NavLink key={idx} href="#" className="block py-2 text-red-100 text-lg">{course.name}</NavLink>
+                  <NavLink
+                    to={`/course/${course.id}`}
+                    state={{ course }}
+                    onClick={() => {
+                      setIsMenuOpen(false)
+                    }}
+                    key={idx} className="block py-2 text-red-100 text-lg">{course.name}</NavLink>
                 ))}
               </div>
             </div>
 
-            <NavLink to={'/gallery'} className="border-b border-red-700 pb-2">Gallery</NavLink>
-            <NavLink to={'/about'} className="border-b border-red-700 pb-2">About Us</NavLink>
-            <NavLink to={'/contact'} className="border-b border-red-700 pb-2">Contact</NavLink>
-
-            <button 
-            onClick={() => setEnquireFormOpen(true)}
-            className="mt-6 bg-white text-[var(--color-primary)] font-bold py-4 rounded-xl shadow-lg">
+            <NavLink
+              to="/gallery"
+              onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "flex justify-center py-3 rounded-2xl bg-white text-red-600 border-b border-red-700"
+                  : "border-b border-red-700 pb-2"
+              }
+            >
+              <span>Gallery</span>
+            </NavLink>
+            <NavLink
+              to="/about"
+              onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "flex justify-center py-3 rounded-2xl bg-white text-red-600 border-b border-red-700"
+                  : "border-b border-red-700 pb-2"
+              }
+            >
+              <span>About Us</span>
+            </NavLink>
+            <NavLink
+              to="/contact"
+              onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "flex justify-center  py-3  rounded-2xl bg-white text-red-600 border-b border-red-700"
+                  : "border-b border-red-700 pb-2"
+              }
+            >
+              <span>Contact Us</span>
+            </NavLink>
+            <button
+              onClick={() => setEnquireFormOpen(true)}
+              className="mt-6 bg-white text-[var(--color-primary)] font-bold py-4 rounded-xl shadow-lg">
               Enroll Now
             </button>
           </nav>

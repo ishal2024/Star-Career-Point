@@ -42,9 +42,9 @@ const CourseDetailPage = ({ courseData }) => {
       {/* --- SECTION 1: COURSE HEADER (30vh) --- */}
       <section className="relative h-[35vh] md:h-[45vh] w-full overflow-hidden flex items-center">
         {/* Background Image */}
-        <img 
-          src={data.image} 
-          alt={data.name} 
+        <img
+        src={data.image}
+           alt={data.name} 
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Dark Gradient Overlay for SEO-friendly text contrast */}

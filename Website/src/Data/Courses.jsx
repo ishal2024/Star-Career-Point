@@ -2,7 +2,7 @@ export const courses = [
   {
     "id": 1,
     "name": "Class V-VIII Foundation Program",
-    "image": "https://source.unsplash.com/800x600/?school,classroom",
+    "image": "https://media.istockphoto.com/id/2244760953/photo/indian-math-teacher-guiding-student-at-whiteboard.webp?a=1&b=1&s=612x612&w=0&k=20&c=y03tKoBxd8AnmtWslOwCNNfPo1eLew9Cmg-yxrKRw0U=",
     "description": "Foundation program designed to strengthen basics in Maths, Science, and English with interactive learning.",
     "price": "₹25,000",
     "duration": "1 Year Program",
@@ -18,7 +18,7 @@ export const courses = [
   {
     "id": 2,
     "name": "Class IX (CBSE)",
-    "image": "https://source.unsplash.com/800x600/?students,study",
+    "image": "https://images.unsplash.com/photo-1628863353691-0071c8c1874c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hlbWlzdHJ5fGVufDB8fDB8fHww",
     "description": "Strong base-building course for Class IX with focus on conceptual clarity.",
     "price": "₹30,000",
     "duration": "1 Year Program",
@@ -34,7 +34,7 @@ export const courses = [
   {
     "id": 3,
     "name": "Class X (CBSE & Boards)",
-    "image": "https://source.unsplash.com/800x600/?exam,students",
+    "image": "https://images.unsplash.com/photo-1631047085941-a29e9730a7e6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2xhc3MlMjAxMCUyMG1hdGh8ZW58MHx8MHx8fDA%3D",
     "description": "Complete board preparation course with test series and revision modules.",
     "price": "₹35,000",
     "duration": "1 Year Program",
@@ -51,7 +51,7 @@ export const courses = [
   {
     "id": 4,
     "name": "Class XI (PCM - CBSE & Boards)",
-    "image": "https://source.unsplash.com/800x600/?physics,math",
+    "image": "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xhc3MlMjAxMSUyMHNjaWVuY2UlMjBmb3JtdWxhfGVufDB8fDB8fHww",
     "description": "Advanced PCM course focusing on concepts and competitive exam foundation.",
     "price": "₹45,000",
     "duration": "1 Year Program",
@@ -67,7 +67,7 @@ export const courses = [
   {
     "id": 5,
     "name": "Class XI (PCB - CBSE & Boards)",
-    "image": "https://source.unsplash.com/800x600/?biology,lab",
+    "image": "https://plus.unsplash.com/premium_photo-1676661063383-e90bfad9db3f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNsYXNzJTIwMTElMjBiaW9sb2d5JTIwZm9ybXVsYXxlbnwwfHwwfHx8MA%3D%3D",
     "description": "Biology-focused course for NEET foundation with strong fundamentals.",
     "price": "₹44,000",
     "duration": "1 Year Program",
@@ -82,7 +82,7 @@ export const courses = [
   {
     "id": 6,
     "name": "Class XI (Commerce - CBSE & Boards)",
-    "image": "https://source.unsplash.com/800x600/?business,finance",
+    "image": "https://images.unsplash.com/photo-1708011271935-3e109df56fe0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNsYXNzJTIwMTElMjBhY2NvdW50JTIwZm9ybXVsYXxlbnwwfHwwfHx8MA%3D%3D",
     "description": "Commerce program with Accounts, Economics, and Business Studies.",
     "price": "₹40,000",
     "duration": "1 Year Program",
@@ -97,7 +97,7 @@ export const courses = [
   {
     "id": 7,
     "name": "Class XI (Humanities - CBSE & Boards)",
-    "image": "https://source.unsplash.com/800x600/?history,classroom",
+    "image": "https://images.unsplash.com/photo-1620653260947-9ca7317ef82e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNsYXNzJTIwMTElMjBoaXN0b3J5JTIwYm9va3xlbnwwfHwwfHx8MA%3D%3D",
     "description": "Humanities course focusing on analytical and writing skills.",
     "price": "₹38,000",
     "duration": "1 Year Program",
@@ -113,7 +113,7 @@ export const courses = [
   {
     "id": 8,
     "name": "Class XII (PCM - CBSE & Boards)",
-    "image": "https://source.unsplash.com/800x600/?students,physics",
+    "image": "https://images.unsplash.com/photo-1754304342696-7c253db44456?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xhc3MlMjAxMiUyMHBoeXNpY3MlMjBib29rfGVufDB8fDB8fHww",
     "description": "Final year PCM course with strong focus on boards and JEE level preparation.",
     "price": "₹48,000",
     "duration": "1 Year Program",
@@ -129,7 +129,7 @@ export const courses = [
   {
     "id": 9,
     "name": "Class XII (PCB - CBSE & Boards)",
-    "image": "https://source.unsplash.com/800x600/?medical,students",
+    "image": "https://images.unsplash.com/photo-1674702693637-330943cdf0a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2xhc3MlMjAxMiUyMGJpb2xvZ3klMjBib29rfGVufDB8fDB8fHww",
     "description": "Complete PCB course for NEET aspirants with intensive practice and revision.",
     "price": "₹47,000",
     "duration": "1 Year Program",
@@ -144,7 +144,7 @@ export const courses = [
   {
     "id": 10,
     "name": "Class XII (Commerce - CBSE & Boards)",
-    "image": "https://source.unsplash.com/800x600/?finance,students",
+    "image": "https://plus.unsplash.com/premium_photo-1773832921566-c4b5e5937174?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNsYXNzJTIwMTIlMjBhY2NvdW50cyUyMGJvb2t8ZW58MHx8MHx8fDA%3D",
     "description": "Board-focused commerce course with Accounts and Economics specialization.",
     "price": "₹42,000",
     "duration": "1 Year Program",
@@ -159,7 +159,7 @@ export const courses = [
   {
     "id": 11,
     "name": "Class XII (Humanities - CBSE & Boards)",
-    "image": "https://source.unsplash.com/800x600/?books,students",
+    "image": "https://images.unsplash.com/photo-1488628176578-4ffd5fdbc900?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNsYXNzJTIwMTIlMjBnZW9ncmFwaHklMjBib29rfGVufDB8fDB8fHww",
     "description": "Final year humanities preparation with focus on answer writing and boards.",
     "price": "₹40,000",
     "duration": "1 Year Program",

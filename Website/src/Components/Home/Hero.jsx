@@ -48,16 +48,16 @@ const Hero = () => {
           />
           
           {/* Content */}
-          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+          <div className="absolute  inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
             <h1 className="text-white text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">
               {slide.title}
             </h1>
             <p className="text-gray-100 text-lg md:text-xl mb-8 max-w-2xl">
               {slide.subtitle}
             </p>
-            <button className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white font-bold py-3 px-8 rounded-lg transition-all transform hover:scale-105 shadow-lg">
+            {/* <button className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white font-bold py-3 px-8 rounded-lg transition-all transform hover:scale-105 shadow-lg">
               Get Started
-            </button>
+            </button> */}
           </div>
         </div>
       ))}

@@ -8,6 +8,7 @@ import Footer from './Components/Footer'
 import { Outlet } from 'react-router-dom'
 import EnquireModal from './Components/EnquireModal'
 import { ToastContainer } from 'react-toastify'
+import FloatingWhatsAppButton from './Components/Modals/FloatingWhatsAppButton'
 
 function App() {
 
@@ -39,6 +40,8 @@ function App() {
         newestOnTop
         theme='dark'
       />
+
+      <FloatingWhatsAppButton />
     </>
   )
 }

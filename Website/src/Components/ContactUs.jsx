@@ -22,17 +22,17 @@ const ContactUs = () => {
     {
       icon: <MapPin className="text-[var(--color-primary)]" size={24} />,
       title: "Our Location",
-      details: ["123 Learning Street, Knowledge Hub,", "New Delhi, India - 110001"],
+      details: ["Dharampal Complex, Near Small Red Light, Mahipalpur, New Delhi., 110037"],
     },
     {
       icon: <Phone className="text-[var(--color-primary)]" size={24} />,
       title: "Phone Numbers",
-      details: ["+91 98765 43210", "+91 011 2345 6789"],
+      details: ["+91 98996 08180", "+91 82874 11945"],
     },
     {
       icon: <Mail className="text-[var(--color-primary)]" size={24} />,
       title: "Email Address",
-      details: ["info@eduboostcoaching.com", "admissions@eduboost.com"],
+      details: ["info@eduboostcoaching.com"],
     },
     {
       icon: <Clock className="text-[var(--color-primary)]" size={24} />,
@@ -47,13 +47,17 @@ const ContactUs = () => {
   const [address, setAddress] = useState("")
   const [message, setMessage] = useState("")
 
+   const [loading, setLoading] = useState(false)
+
 
   async function handleEnquireNow(e) {
     try {
       e.preventDefault();
+      setLoading(true)
       console.log("Everything is working")
       if (!contact || contact.length != 10) {
         toast.error("Invalid Contact Number , Phone number should be of 10 digits")
+        setLoading(false)
         return
       }
       const data = {
@@ -68,9 +72,11 @@ const ContactUs = () => {
       const res = await enquireNow(data)
       if(res?.data?.status){
           toast.success("Thank you for your enquiry! Our team will contact you shortly.")
+          setLoading(false)
       }
     } catch (error) {
       toast.error(error?.response?.data?.message)
+      setLoading(false)
     }
   }
 
@@ -135,7 +141,7 @@ const ContactUs = () => {
               {/* Social or CTA reinforcement */}
               <div className="mt-12 p-6 bg-[var(--bg-secondary)] rounded-2xl border border-red-100">
                 <p className="text-[var(--color-primary-dark)] font-bold text-sm mb-2 uppercase tracking-wide">Need Immediate Help?</p>
-                <p className="text-gray-700 text-sm">Call our 24/7 student helpline at <strong>1800-123-4567</strong> for urgent queries.</p>
+                <p className="text-gray-700 text-sm">Call our 24/7 student helpline at <strong>+91 98996 08180</strong> for urgent queries.</p>
               </div>
             </motion.div>
           </div>
@@ -211,9 +217,15 @@ const ContactUs = () => {
 
                 <button
                   type="submit"
+                  disabled={loading}
                   className="w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white font-black py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-red-200 transition-all active:scale-[0.98]"
                 >
-                  <Send size={18} /> ENQUIRE NOW
+                  {!loading ? <><Send size={18} /> ENQUIRE NOW </>
+                  :
+                  <div className="flex justify-center items-center">
+                  <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                </div>
+                  }
                 </button>
               </form>
             </motion.div>
@@ -230,10 +242,10 @@ const ContactUs = () => {
           viewport={{ once: true }}
           className="max-w-7xl mx-auto overflow-hidden rounded-[var(--radius-lg)] shadow-[var(--shadow-md)] border-4 border-white"
         >
-          <div className="relative w-full h-[450px] grayscale hover:grayscale-0 transition-all duration-700">
+          <div className="relative w-full h-[450px] grayscale-0 transition-all duration-700">
             {/* Semantic Iframe Placeholder */}
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5620653676846!2d77.22732107550005!3d28.6128416756749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2daa9eb4d0b%3A0x71797112592fef27!2sIndia%20Gate!5e0!3m2!1sen!2sin!4v1709900000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.8416655582137!2d77.12513131075612!3d28.54447848797317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1d10f4676ff7%3A0x4834698d4739e049!2sStar%20Career%20Point%20Coaching%20Centre!5e0!3m2!1sen!2sin!4v1774865455871!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -246,7 +258,7 @@ const ContactUs = () => {
             {/* Floating UI overlay on Map */}
             <div className="absolute bottom-6 right-6 hidden md:block">
               <a
-                href="https://maps.google.com"
+                href="https://maps.app.goo.gl/ENZFT6URjBczai5R9"
                 target="_blank"
                 rel="noreferrer"
                 className="bg-white px-6 py-3 rounded-full shadow-xl flex items-center gap-2 text-[var(--color-primary)] font-bold hover:bg-[var(--color-primary)] hover:text-white transition-all"
