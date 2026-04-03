@@ -3,20 +3,20 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1920",
-    title: "Shape Your Future with Excellence",
-    subtitle: "Join the top-rated coaching institute for JEE & NEET preparation."
+    image: "../../../public/Hero/Coaching_Centre.jpeg",
+    title: "Coaching Center for CBSE and other board V to XII",
+    subtitle: "A team of IIT graduates with 10–12 years of CBSE teaching experience, providing quality notes, assignments, and guidance for board and competitive exams."
   },
   {
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1920",
-    title: "Expert Faculty, Better Results",
-    subtitle: "Learn from Ph.D. holders and industry experts with 10+ years of experience."
+    image: "../../../public/Hero/Spoken_English.jpeg",
+    title: "British Spoken Institute",
+    subtitle: "Offers modern communication skills training for students and professionals to achieve fluency and confidence in English."
   },
   {
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1920",
-    title: "Admissions Open for 2024",
-    subtitle: "Get up to 50% scholarship based on your entrance test scores."
-  }
+    image: "../../../public/Hero/IELTS.jpeg",
+    title: "Institute for IELTS / PTE",
+    subtitle: "Provides IELTS (Academic & General) and PTE coaching with expert guidance for study abroad, immigration, and visa assistance."
+  },
 ];
 
 const Hero = () => {
@@ -35,16 +35,16 @@ const Hero = () => {
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+          className={`absolute  inset-0 transition-opacity duration-1000 ease-in-out ${
             index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
         >
           {/* Image Overlay */}
-          <div className="absolute inset-0 bg-black/50 z-10" />
+          <div className="absolute  inset-0 bg-black/50 z-10" />
           <img 
             src={slide.image} 
             alt={slide.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain "
           />
           
           {/* Content */}
@@ -52,7 +52,7 @@ const Hero = () => {
             <h1 className="text-white text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">
               {slide.title}
             </h1>
-            <p className="text-gray-100 text-lg md:text-xl mb-8 max-w-2xl">
+            <p className="text-gray-100 text-lg md:text-lg mb-8 max-w-2xl">
               {slide.subtitle}
             </p>
             {/* <button className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white font-bold py-3 px-8 rounded-lg transition-all transform hover:scale-105 shadow-lg">

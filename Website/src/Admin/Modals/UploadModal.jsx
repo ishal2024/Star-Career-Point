@@ -9,7 +9,7 @@ import {
     CheckCircle2,
     Loader2
 } from 'lucide-react';
-import { courses } from '../../Data/Courses';
+import { courseCategories } from '../../Data/Courses';
 import { uploadFile } from '../../axios/adminApi';
 
 const FileUploadModal = ({ isOpen, onClose }) => {
@@ -129,7 +129,7 @@ const FileUploadModal = ({ isOpen, onClose }) => {
                                     className="w-full px-4 py-3 bg-[var(--bg-primary)] border border-[var(--border)] rounded-[var(--radius-md)] text-[var(--text-primary)] appearance-none focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/30 focus:border-[var(--accent)] cursor-pointer transition-[var(--transition)]"
                                 >
                                     <option value="" disabled className="bg-[var(--bg-secondary)]">Choose a course...</option>
-                                    {courses.map(opt => (
+                                    {courseCategories.map(opt => (
                                         <option key={opt} value={opt} className="bg-[var(--bg-secondary)]">{opt?.name}</option>
                                     ))}
                                 </select>

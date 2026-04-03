@@ -76,7 +76,7 @@ const CourseDetailPage = ({ courseData }) => {
             <div className="bg-white rounded-[var(--radius-lg)] shadow-[var(--shadow-lg)] border border-gray-100 overflow-hidden transform transition-all duration-300 hover:shadow-2xl">
               <div className="bg-[var(--color-primary)] p-6 text-white">
                 <p className="text-sm font-bold opacity-80 uppercase tracking-wider mb-1">Course Fee</p>
-                <div className="text-4xl font-black">{data.price}</div>
+                <div className="text-4xl font-black">N/A</div>
               </div>
               
               <div className="p-6 space-y-5">
@@ -171,7 +171,7 @@ const CourseDetailPage = ({ courseData }) => {
       </div>
 
       {/* --- SECTION 4: FACULTY SECTION --- */}
-      <section className="bg-gray-50 py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
+      {/* <section className="bg-gray-50 py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4 uppercase tracking-tighter">Our Faculty</h2>
@@ -195,7 +195,7 @@ const CourseDetailPage = ({ courseData }) => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CSS-Only Fade Animation for Sections */}
       <style>{`

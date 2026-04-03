@@ -53,9 +53,7 @@ const Footer = () => {
           >
             {/* Logo & Name */}
             <div className="flex items-center space-x-3 group cursor-pointer">
-              <div className="bg-white text-[var(--color-primary)] p-2 rounded-lg group-hover:rotate-12 transition-transform duration-300">
-                <GraduationCap size={32} />
-              </div>
+                <img className='w-12 h-12 rounded-md' src="../../public/logo2.png" alt="logo" />
               <span className="text-2xl font-black tracking-tight">StarPoint Classes</span>
             </div>
 

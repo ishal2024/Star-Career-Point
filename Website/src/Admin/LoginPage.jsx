@@ -89,7 +89,6 @@ const LoginPage = () => {
                 />
                 {/* Toggle Password Visibility */}
                 <button
-                  type="submit"
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-500 hover:text-white transition-colors"
                 >

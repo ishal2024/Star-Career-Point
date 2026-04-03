@@ -34,12 +34,12 @@ const Header = () => {
         <div className="flex justify-between items-center">
 
           {/* Logo */}
-          <div 
-          onClick={() => navigate('/')}
-          className="flex items-center space-x-2 text-white font-bold text-2xl cursor-pointer">
-            <div className="bg-white text-[var(--color-primary)] p-1 rounded-md">
-              <GraduationCap size={28} />
-            </div>
+          <div
+            onClick={() => navigate('/')}
+            className="flex items-center space-x-2 text-white font-bold text-2xl cursor-pointer">
+            
+              <img className='w-12 h-12 rounded-md' src="../../public/logo2.png" alt="logo" />
+            
             <span>StarPoint Classes</span>
           </div>
 
@@ -84,6 +84,17 @@ const Header = () => {
               Gallery
             </NavLink>
             <NavLink
+              to="/resources"
+              onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "px-3 py-2 rounded-2xl bg-white text-red-600 border-b border-red-700"
+                  : "hover:text-red-200 transition-colors"
+              }
+            >
+              Resources
+            </NavLink>
+            <NavLink
               to="/about"
               onClick={() => setIsMenuOpen(false)}
               className={({ isActive }) =>
@@ -105,6 +116,7 @@ const Header = () => {
             >
               Contact Us
             </NavLink>
+
           </nav>
 
           {/* Right CTA */}
@@ -132,7 +144,7 @@ const Header = () => {
           </div>
 
           <nav className="flex flex-col space-y-4 text-white text-xl">
-           <NavLink
+            <NavLink
               to="/"
               onClick={() => setIsMenuOpen(false)}
               className={({ isActive }) =>
@@ -175,6 +187,17 @@ const Header = () => {
               }
             >
               <span>Gallery</span>
+            </NavLink>
+            <NavLink
+              to="/resources"
+              onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "flex justify-center py-3 rounded-2xl bg-white text-red-600 border-b border-red-700"
+                  : "border-b border-red-700 pb-2"
+              }
+            >
+              <span>Resources</span>
             </NavLink>
             <NavLink
               to="/about"

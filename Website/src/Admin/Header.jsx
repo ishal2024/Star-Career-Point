@@ -10,6 +10,7 @@ import {
   Zap 
 } from 'lucide-react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import logo from '../../public/logo.jpeg'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,9 +38,7 @@ const Header = () => {
       
       {/* 1. LEFT SECTION: Branding */}
       <div className="flex items-center gap-2 cursor-pointer group shrink-0">
-        <div className="p-2 rounded-lg bg-[var(--accent)] text-white shadow-lg shadow-[var(--accent)]/20 transition-transform group-hover:rotate-12">
-          <Zap size={20} fill="currentColor" />
-        </div>
+        <img src="../../public/logo.jpeg" alt="logo" />
         <span className="text-lg md:text-xl font-bold tracking-tight text-[var(--text-primary)]">
           Coaching<span className="text-[var(--accent)] font-black">AI</span>
         </span>

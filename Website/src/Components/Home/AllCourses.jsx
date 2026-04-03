@@ -42,7 +42,7 @@ const CourseCard = ({ course, index }) => {
         <div className="space-y-2 mb-6 flex-grow">
           <div className="flex items-start gap-2">
             <CheckCircle2 size={18} className="text-[var(--color-primary)] mt-1 shrink-0" />
-            <p className="text-[var(--text-secondary)] text-sm">
+            <p className="text-gray-600 text-sm font-semibold">
               <span className="font-semibold text-gray-700">Subjects:</span> 
               {course.subjects.map((subject) => `${subject.title} , `)
               }
@@ -50,7 +50,7 @@ const CourseCard = ({ course, index }) => {
           </div>
           <div className="flex items-start gap-2">
             <Calendar size={18} className="text-[var(--color-primary)] mt-1 shrink-0" />
-            <p className="text-[var(--text-secondary)] text-sm">
+            <p className="text-gray-600 text-sm font-semibold">
               <span className="font-semibold text-gray-700">Classes:</span> {course.classesPerWeek}
             </p>
           </div>
@@ -58,10 +58,10 @@ const CourseCard = ({ course, index }) => {
 
         {/* Footer: Price & Button */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-          <div>
+          {/* <div>
             <span className="block text-xs text-gray-400 uppercase font-bold tracking-wider">Course Fee</span>
             <span className="text-2xl font-black text-[var(--color-primary)]">{course.price}</span>
-          </div>
+          </div> */}
           <button 
           onClick={() => navigate(`/course/${course.id}` , {state : {course : course}})}
           className="flex items-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white px-5 py-2.5 rounded-[var(--radius-md)] font-bold transition-all duration-300 active:scale-95 shadow-sm hover:shadow-md">

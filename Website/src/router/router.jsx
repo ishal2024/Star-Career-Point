@@ -10,6 +10,7 @@ import ResourcesDashboard from '../Admin/ResourcesDashboard'
 import SettingsPage from '../Admin/SettingsPage'
 import GalleryDashboard from '../Admin/GalleryDashboard'
 import LoginPage from '../Admin/LoginPage'
+import ResourcesPage from '../Components/ResourcesPage'
 
 
 export const router = createBrowserRouter([
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
             {path : '/contact' , element : <ContactUs />},
             {path : '/gallery' , element : <GalleryPage />},
             {path : '/course/:id' , element : <CourseDetailPage />},
+            {path : '/resources' , element : <ResourcesPage />},
         ]
     },
     {
