@@ -9,27 +9,29 @@ import AdminLayout from '../Admin/AdminLayout'
 import ResourcesDashboard from '../Admin/ResourcesDashboard'
 import SettingsPage from '../Admin/SettingsPage'
 import GalleryDashboard from '../Admin/GalleryDashboard'
+import LoginPage from '../Admin/LoginPage'
 
 
 export const router = createBrowserRouter([
-    // {
-    //     path : 'admin',
-    //     element : <App />,
-    //     children : [
-    //         {path : '/' , element : <Home />},
-    //         {path : '/about' , element : <AboutUs />},
-    //         {path : '/contact' , element : <ContactUs />},
-    //         {path : '/gallery' , element : <GalleryPage />},
-    //         {path : '/course/:id' , element : <CourseDetailPage />},
-    //     ]
-    // },
     {
-        path : '/',
+        path : '',
+        element : <App />,
+        children : [
+            {path : '/' , element : <Home />},
+            {path : '/about' , element : <AboutUs />},
+            {path : '/contact' , element : <ContactUs />},
+            {path : '/gallery' , element : <GalleryPage />},
+            {path : '/course/:id' , element : <CourseDetailPage />},
+        ]
+    },
+    {
+        path : '/admin/',
         element : <AdminLayout />,
         children : [
             {path : "" , element : <GalleryDashboard />},
             {path : "resources" , element : <ResourcesDashboard />},
             {path : "setting" , element : <SettingsPage />},
         ]
-    }
+    },
+    {path : '/login' , element : <LoginPage />}
 ])

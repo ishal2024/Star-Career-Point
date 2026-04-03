@@ -9,23 +9,43 @@ import {
   UserCog,
   ShieldCheck
 } from 'lucide-react';
+import { changePassword, logout } from '../axios/adminApi';
+import { useNavigate } from 'react-router-dom';
 
 const SettingsPage = () => {
   const [isPasswordFormOpen, setIsPasswordFormOpen] = useState(false);
-  const [showCurrentPass, setShowCurrentPass] = useState(false);
   const [showNewPass, setShowNewPass] = useState(false);
+  const [password , setPassword] = useState("")
 
-  // Dummy Handlers
-  const handleUpdatePassword = (e) => {
-    e.preventDefault();
-    alert("Password update requested!");
-  };
+  const navigate = useNavigate()
 
-  const handleLogout = () => {
-    if (window.confirm("Are you sure you want to log out?")) {
-      alert("Logged out successfully.");
+
+  async function handleChangePassword(e){
+    e.preventDefault()
+    try {
+      const data = {newPassword : password}
+      console.log(data)
+      const res = await changePassword(data)
+      if(res.status == 200){
+        alert("Password is changed successfully")
+      }
+    } catch (error) {
+      
     }
-  };
+  }
+
+  async function handleLogout(){
+    try {
+      const res = await logout()
+      if(res.status == 200){
+        navigate('/login')
+        alert("Logout Successfully")
+      }
+       
+    } catch (error) {
+      
+    }
+  }
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] p-6 md:p-12 text-[var(--text-primary)] transition-[var(--transition)]">
@@ -67,29 +87,8 @@ const SettingsPage = () => {
                 isPasswordFormOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <form onSubmit={handleUpdatePassword} className="p-6 pt-2 border-t border-[var(--border)] space-y-5">
+              <form onSubmit={handleChangePassword} className="p-6 pt-2 border-t border-[var(--border)] space-y-5">
                 
-                {/* Input 1: Current Password */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-[var(--text-secondary)] px-1">Current Password</label>
-                  <div className="relative group">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] group-focus-within:text-[var(--accent)] transition-colors">
-                      <Lock size={18} />
-                    </div>
-                    <input 
-                      type={showCurrentPass ? "text" : "password"}
-                      placeholder="••••••••"
-                      className="w-full pl-12 pr-12 py-3 bg-[var(--bg-primary)] border border-[var(--border)] rounded-[var(--radius-md)] focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 transition-[var(--transition)] placeholder:text-[var(--text-muted)]"
-                    />
-                    <button 
-                      type="button"
-                      onClick={() => setShowCurrentPass(!showCurrentPass)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-primary)]"
-                    >
-                      {showCurrentPass ? <EyeOff size={18} /> : <Eye size={18} />}
-                    </button>
-                  </div>
-                </div>
 
                 {/* Input 2: New Password */}
                 <div className="space-y-2">
@@ -100,6 +99,8 @@ const SettingsPage = () => {
                     </div>
                     <input 
                       type={showNewPass ? "text" : "password"}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
                       className="w-full pl-12 pr-12 py-3 bg-[var(--bg-primary)] border border-[var(--border)] rounded-[var(--radius-md)] focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20 transition-[var(--transition)] placeholder:text-[var(--text-muted)]"
                     />
