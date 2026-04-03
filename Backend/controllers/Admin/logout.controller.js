@@ -3,7 +3,7 @@ async function logoutAdmin(req, res) {
     res.clearCookie("token", {
       httpOnly: true,
       secure: true,      // production me true
-      sameSite: "Strict"
+      sameSite: "none"
     });
 
     return res.status(200).json({
