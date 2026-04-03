@@ -8,7 +8,7 @@ async function getAllUploadedImage(req,res){
                 {resource_type : "image"},
                 {resource_type : "video"},
             ]
-        })
+        }).sort({ createdAt: -1 })
 
         res.status(200).json({data : results , message : "All uploaded photos and videos"})
 

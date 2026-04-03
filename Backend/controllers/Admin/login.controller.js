@@ -5,6 +5,9 @@ async function loginAdmin(req, res) {
   try {
     const { username, password } = req.body;
 
+    if(!username || !password)
+      return res.status(400).json({ message: "Please fill the data" });
+
     if (username != "admin") {
       return res.status(400).json({ message: "Incorrect username" });
     }

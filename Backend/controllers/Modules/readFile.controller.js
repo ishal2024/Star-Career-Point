@@ -3,7 +3,7 @@ import { moduleModel } from "../../models/modules.model.js"
 
 async function getAllUploadedFile(req,res){
     try {
-        const results = await moduleModel.find({resource_type : "raw" })
+        const results = await moduleModel.find({resource_type : "raw" }).sort({ createdAt: -1 })
 
         res.status(200).json({data : results , message : "All uploaded documents"})
 

@@ -25,7 +25,7 @@ async function uploadFile(req, res) {
             url: result.secure_url,
             resource_type: result.resource_type,
             title: req?.body?.title || "Untitled",
-            course: "Bsc Prog Computer Science",
+            course: req?.body?.course || "Bsc Prog Computer Science",
             file_size : result.bytes
         })
 
