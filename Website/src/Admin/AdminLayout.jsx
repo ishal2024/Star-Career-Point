@@ -22,7 +22,9 @@ function AdminLayout() {
         }
     }
 
-    useEffect(() => handleAdminAuth, [])
+    useEffect(() => {
+        handleAdminAuth()
+    }, [])
 
     if (isAuth === null) {
         return (
