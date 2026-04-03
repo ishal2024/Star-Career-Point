@@ -1,13 +1,15 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
-
-const app = express()
+import {connectDatabase} from './config/db.config.js'
 
 dotenv.config()
+const app = express()
+
+connectDatabase()
 
 app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.urlencoded({extended : true}))
 
 app.use(
   cors({
@@ -19,8 +21,12 @@ app.use(
 );
 
 import mailRouter from './routes/enquire.route.js'
+import moduleRouter from './routes/module.route.js'
+import adminRouter from './routes/admin.route.js'
 
 app.use('/api/mail/' , mailRouter)
+app.use('/api/module' , moduleRouter)
+app.use('/api/admin' , adminRouter)
 
 app.get('/' , (req,res) => {
    res.send("Hello World")
