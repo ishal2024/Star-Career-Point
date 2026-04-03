@@ -9,12 +9,14 @@ import {
   Settings, 
   Zap 
 } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [activeTab, setActiveTab] = useState('Gallery');
+
+  const navigate = useNavigate()
 
   // Navigation Links Data
   const navLinks = [
@@ -95,6 +97,7 @@ const Header = () => {
               key={link.name}
               onClick={() => {
                 setActiveTab(link.name);
+                navigate(link.path)
                 setIsMobileMenuOpen(false);
               }}
               className={`flex items-center gap-4 p-4 rounded-[var(--radius-lg)] text-lg font-semibold transition-[var(--transition)]
