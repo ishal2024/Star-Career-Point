@@ -12,7 +12,7 @@ async function uploadFile(req, res) {
             return res.status(400).json({ message: "File is required" });
         }
 
-        result = await uploadFromBuffer(req.file.buffer)
+        result = await uploadFromBuffer(req.file)
 
         console.log(result)
 
