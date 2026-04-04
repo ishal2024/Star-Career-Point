@@ -3,17 +3,17 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   {
-    image: "../../../public/Hero/Coaching_Centre.jpeg",
+    image: "../../assets/Hero/Coaching_Centre.jpeg",
     title: "Coaching Center for CBSE and other board V to XII",
     subtitle: "A team of IIT graduates with 10–12 years of CBSE teaching experience, providing quality notes, assignments, and guidance for board and competitive exams."
   },
   {
-    image: "../../../public/Hero/Spoken_English.jpeg",
+    image: "../../assets/Hero/Spoken_English.jpeg",
     title: "British Spoken Institute",
     subtitle: "Offers modern communication skills training for students and professionals to achieve fluency and confidence in English."
   },
   {
-    image: "../../../public/Hero/IELTS.jpeg",
+    image: "../../assets/Hero/IELTS.jpeg",
     title: "Institute for IELTS / PTE",
     subtitle: "Provides IELTS (Academic & General) and PTE coaching with expert guidance for study abroad, immigration, and visa assistance."
   },

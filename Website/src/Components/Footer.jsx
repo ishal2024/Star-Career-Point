@@ -10,6 +10,7 @@ import {
   ChevronRight,
   Mail
 } from 'lucide-react';
+import logo from '../assets/logo2.png'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -53,7 +54,7 @@ const Footer = () => {
           >
             {/* Logo & Name */}
             <div className="flex items-center space-x-3 group cursor-pointer">
-                <img className='w-12 h-12 rounded-md' src="../../public/logo2.png" alt="logo" />
+                <img className='w-12 h-12 rounded-md' src={logo} alt="logo" />
               <span className="text-2xl font-black tracking-tight">StarPoint Classes</span>
             </div>
 

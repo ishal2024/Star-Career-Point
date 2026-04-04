@@ -4,6 +4,7 @@ import '../App.css'
 import { enquireNow } from '../axios/mailApi';
 import { toast } from 'react-toastify';
 import { SyncLoader } from 'react-spinners'
+import logo from '../assets/logo2.png'
 
 const EnquireModal = ({ isOpen, onClose, subject }) => {
   // UI-level state for demonstration
@@ -71,7 +72,7 @@ const EnquireModal = ({ isOpen, onClose, subject }) => {
         <header className="sticky top-0 z-30 bg-gradient-to-r from-[var(--color-primary-dark)] to-[var(--color-primary)] p-4 md:p-6 shadow-md flex items-center justify-between">
           {/* Left: Branding */}
           <div className="flex items-center gap-3">
-              <img className='w-12 h-12 rounded-md' src="../../public/logo2.png" alt="logo" />
+              <img className='w-12 h-12 rounded-md' src={logo} alt="logo" />
             <div>
               <h2 className="text-white font-black leading-tight tracking-tight text-lg md:text-xl">
                 StarPoint Classes
