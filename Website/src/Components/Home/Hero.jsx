@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Coaching from "../../assets/Hero/Coaching_Centre.jpeg"
+import spoken from "../../assets/Hero/Spoken_English.jpeg"
+import ielts from "../../assets/Hero/IELTS.jpeg"
 
 const slides = [
   {
-    image: "../../assets/Hero/Coaching_Centre.jpeg",
+    image: Coaching,
     title: "Coaching Center for CBSE and other board V to XII",
     subtitle: "A team of IIT graduates with 10–12 years of CBSE teaching experience, providing quality notes, assignments, and guidance for board and competitive exams."
   },
   {
-    image: "../../assets/Hero/Spoken_English.jpeg",
+    image: spoken,
     title: "British Spoken Institute",
     subtitle: "Offers modern communication skills training for students and professionals to achieve fluency and confidence in English."
   },
   {
-    image: "../../assets/Hero/IELTS.jpeg",
+    image: ielts,
     title: "Institute for IELTS / PTE",
     subtitle: "Provides IELTS (Academic & General) and PTE coaching with expert guidance for study abroad, immigration, and visa assistance."
   },
