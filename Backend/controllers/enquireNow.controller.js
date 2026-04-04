@@ -1,5 +1,5 @@
 import { getTransporter } from "../config/emailTransporter.config.js";
-
+import { Resend } from 'resend'
 
 async function enquireNowByMail(req, res) {
     try {
@@ -21,11 +21,11 @@ async function enquireNowByMail(req, res) {
             });
         }
 
-        const transporter = getTransporter();
+        const resend = new Resend(process.env.RESEND_API_KEY);
 
         const mail = {
-            from: `"${name}" <${process.env.YOUR_MAIL}>`,
-            to: process.env.ADMIN_MAIL,
+            from: 'onboarding@resend.dev',
+            to: process.env.YOUR_MAIL,
             subject: "New Enquiry",
 
             text: `
@@ -40,10 +40,17 @@ async function enquireNowByMail(req, res) {
                     ${message}
                   `,
 
-            replyTo: userEmail,
+            reply_to: userEmail,
         };
 
-        const info = await transporter.sendMail(mail);
+        const info = await resend.emails.send(mail);
+
+        if (info.error) {
+            return res.status(400).json({
+                status: false,
+                message: info.error.message,
+            });
+        }
 
         return res.status(200).json({
             status: true,
