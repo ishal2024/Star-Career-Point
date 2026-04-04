@@ -9,11 +9,14 @@ export const uploadFromBuffer = (file) => {
     let resourceType;
 
     if (
-      mimetype.startsWith("image") ||
-      mimetype.startsWith("video")
+      mimetype.startsWith("image")
     ) {
       resourceType = "image";
-    } else if (
+    } 
+    else if(mimetype.startsWith("video")){
+      resourceType = "video";
+    }
+    else if (
       mimetype === "application/pdf" ||
       mimetype.includes("word") ||
       mimetype.includes("presentation")
