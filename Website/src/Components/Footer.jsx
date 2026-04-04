@@ -1,10 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  MapPin, 
-  Phone, 
-  
-  
+import {FaFacebook, FaInstagram, FaWhatsapp, FaYoutube} from 'react-icons/fa'
+import {
+  MapPin,
+  Phone,
   MessageCircle, // Used for WhatsApp
   GraduationCap,
   ChevronRight,
@@ -15,12 +14,33 @@ import logo from '../assets/logo2.png'
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    // { icon: <Facebook size={20} />, href: "#", label: "Facebook" },
-    // { icon: <Instagram size={20} />, href: "#", label: "Instagram" },
-    // { icon: <Youtube size={20} />, href: "#", label: "YouTube" },
-    { icon: <MessageCircle size={20} />, href: "#", label: "WhatsApp" },
-  ];
+const socialLinks = [
+  {
+    href: "https://wa.me/your-number",
+    icon: <FaWhatsapp size={22}/>, // WhatsApp style
+    label: "WhatsApp",
+    color: "hover:text-green-500"
+  },
+  {
+    href: "https://instagram.com/your-id",
+    icon: <FaInstagram  size={22} />,
+    label: "Instagram",
+    color: "hover:text-pink-500"
+  },
+  {
+    href: "https://youtube.com/your-channel",
+    icon: <FaYoutube size={22} />,
+    label: "YouTube",
+    color: "hover:text-red-500"
+  },
+  {
+    href: "https://facebook.com/your-page",
+    icon: <FaFacebook size={22} />,
+    label: "Facebook",
+    color: "hover:text-blue-500"
+  }
+];
+
 
   const navLinks = [
     { name: "Home", href: "#" },
@@ -32,7 +52,7 @@ const Footer = () => {
 
   return (
     <footer className="relative w-full bg-[var(--color-primary-dark)] text-white overflow-hidden">
-      
+
       {/* Optional Top Curve Decoration */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0]">
         <svg className="relative block w-full h-[40px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -41,12 +61,12 @@ const Footer = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-8">
-        
+
         {/* --- Top Section --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-          
+
           {/* LEFT SIDE: Branding & Contact */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -54,7 +74,7 @@ const Footer = () => {
           >
             {/* Logo & Name */}
             <div className="flex items-center space-x-3 group cursor-pointer">
-                <img className='w-12 h-12 rounded-md' src={logo} alt="logo" />
+              <img className='w-12 h-12 rounded-md' src={logo} alt="logo" />
               <span className="text-2xl font-black tracking-tight">StarPoint Classes</span>
             </div>
 
@@ -84,9 +104,11 @@ const Footer = () => {
                 <motion.a
                   key={index}
                   href={social.href}
-                  whileHover={{ scale: 1.2, rotate: 8 }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.15 }}
                   whileTap={{ scale: 0.9 }}
-                  className="bg-white/10 p-3 rounded-full hover:bg-white hover:text-[var(--color-primary)] transition-all duration-300 shadow-lg"
+                  className={`p-3 rounded-full bg-white/10 backdrop-blur-md text-white shadow-lg transition-all duration-300 ${social.color}`}
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -96,7 +118,7 @@ const Footer = () => {
           </motion.div>
 
           {/* RIGHT SIDE: Navigation Links */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -129,7 +151,7 @@ const Footer = () => {
             <p className="text-sm text-red-100 font-light tracking-wide text-center">
               © {currentYear} <span className="font-bold">EduBoost Coaching Center</span>. All rights reserved.
             </p>
-            
+
             <div className="flex space-x-6 text-xs text-red-200 uppercase tracking-widest font-semibold">
               <a href="#" className="hover:text-white transition-colors">Terms</a>
               <a href="#" className="hover:text-white transition-colors">Privacy</a>

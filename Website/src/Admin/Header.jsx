@@ -38,9 +38,9 @@ const Header = () => {
       
       {/* 1. LEFT SECTION: Branding */}
       <div className="flex items-center gap-2 cursor-pointer group shrink-0">
-        <img src="../../public/logo.jpeg" alt="logo" />
+        <img className='w-12 h-12 rounded-md' src={logo} alt="logo" />
         <span className="text-lg md:text-xl font-bold tracking-tight text-[var(--text-primary)]">
-          Coaching<span className="text-[var(--accent)] font-black">AI</span>
+          Coaching <span className="text-[var(--accent)] font-black">Dashboard</span>
         </span>
       </div>
 

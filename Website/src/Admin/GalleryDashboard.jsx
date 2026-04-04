@@ -11,27 +11,20 @@ import {
 import UploadModal from './Modals/UploadModal';
 import { deleteDocument, getGalleryData } from '../axios/adminApi';
 import { useDispatch, useSelector } from 'react-redux';
-import { addGalleryData } from '../redux/dashboardSlicer';
+import { addGalleryData, handleRefreshGallery } from '../redux/dashboardSlicer';
+import DeleteConfirmationModal from './Modals/DeleteConfirmationModel';
+import PageSpinner from '../Components/Modals/Spinner';
 
 const GalleryDashboard = () => {
     // Dummy data state to allow for visual deletion
 
     const dispatch = useDispatch()
-    const { gallery } = useSelector((state) => state.dashboard)
-
-
-    async function handleDeleteDocument(data) {
-        try {
-            const res = await deleteDocument(data)
-            if (res.status == 200) {
-                alert("File is deleted")
-            }
-        } catch (error) {
-            alert(error?.response?.data?.message)
-        }
-    }
-
+    const { gallery , refreshGallery } = useSelector((state) => state.dashboard)
+    const [confirmModal , setConfirmModal] = useState(false)
+    const [confirmData , setConfirmData] = useState({})
+    const [spinner , setSpinner] = useState(false)
     const [isFormOpen, setFormOpen] = useState(false)
+    const [videoControls , setVideoControls] = useState(false)
 
     const handleAddMedia = () => {
         alert("Triggering file upload modal...");
@@ -39,12 +32,16 @@ const GalleryDashboard = () => {
 
     async function initializeMediaItems() {
         try {
+            setSpinner(true)
             const res = await getGalleryData()
 
             if (res?.status == 200) {
                 dispatch(addGalleryData(res?.data?.data))
+                dispatch(handleRefreshGallery(false))
+                setSpinner(false)
             }
         } catch (error) {
+            setSpinner(false)
             console.log(error?.message)
         }
     }
@@ -52,8 +49,9 @@ const GalleryDashboard = () => {
     console.log(gallery)
 
     useEffect(() => {
+        if(refreshGallery)
         initializeMediaItems()
-    }, [])
+    }, [refreshGallery])
 
     return (
         /* Removed hardcoded p-6 md:p-10 and replaced with w-full */
@@ -63,6 +61,15 @@ const GalleryDashboard = () => {
         isOpen={isFormOpen}
         onClose={() => setFormOpen(false)}
     />}
+
+    {confirmModal && <DeleteConfirmationModal
+    isOpen={confirmModal}
+    onClose={() =>{
+        setConfirmModal(false)
+        setConfirmData({})
+    }}
+    data={confirmData}
+     />}
 
     {/* 1. HEADER SECTION - Improved spacing and text alignment */}
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-8 md:mb-12">
@@ -83,11 +90,11 @@ const GalleryDashboard = () => {
     </div>
 
     {/* 2. GALLERY GRID - Better responsive column distribution */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+    {!spinner ? <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
 
         {/* 3. FIRST CARD (Special Add Card) - Optimized for touch */}
         <div
-            onClick={handleAddMedia}
+            onClick={() => setFormOpen(true)}
             className="group cursor-pointer aspect-video flex flex-col items-center justify-center border-2 border-dashed border-[var(--border)] hover:border-[var(--accent)] bg-[var(--bg-secondary)] rounded-[var(--radius-lg)] transition-all hover:bg-[var(--bg-tertiary)] p-4"
         >
             <div className="p-3 md:p-4 rounded-full bg-[var(--bg-tertiary)] group-hover:bg-[var(--accent)] transition-all mb-3">
@@ -100,11 +107,15 @@ const GalleryDashboard = () => {
         {gallery.map((item) => (
             <div
                 key={item.id}
+                
                 className="group relative overflow-hidden bg-[var(--bg-secondary)] rounded-[var(--radius-lg)] shadow-[var(--shadow-md)] border border-[var(--border)] transition-all hover:shadow-[var(--shadow-lg)]"
             >
                 {/* Delete Button - Optimized: Higher z-index and larger touch area on mobile */}
                 <button
-                    onClick={() => handleDeleteDocument({public_id : item?.public_id , resource_type : item?.resource_type})}
+                    onClick={() => {
+                        setConfirmData({public_id : item?.public_id , resource_type : item?.resource_type})
+                        setConfirmModal(true)
+                    }}
                     className="absolute top-2 right-2 z-30 p-2.5 rounded-full bg-black/60 text-white backdrop-blur-md hover:bg-[var(--danger)] transition-all md:opacity-0 group-hover:opacity-100"
                     title="Delete Media"
                 >
@@ -112,7 +123,7 @@ const GalleryDashboard = () => {
                 </button>
 
                 {/* Media Content - Fixed Aspect Ratio */}
-                <div className="aspect-video w-full overflow-hidden bg-neutral-900 flex items-center justify-center">
+                <div onClick={() => setVideoControls(true)} className="aspect-video w-full overflow-hidden bg-neutral-900 flex items-center justify-center">
                     {item.resource_type === 'image' ? (
                         <img
                             src={item.url}
@@ -122,7 +133,7 @@ const GalleryDashboard = () => {
                     ) : (
                         <video
                             className="w-full h-full object-cover"
-                            controls={false}
+                            controls={videoControls}
                             muted
                             playsInline
                         >
@@ -132,9 +143,9 @@ const GalleryDashboard = () => {
                 </div>
 
                 {/* Overlay - Visible on mobile for context, hover-only on desktop */}
-                <div className="absolute inset-0 bg-black/30 md:bg-black/40 opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px] pointer-events-none">
+                <div  className={`absolute inset-0 bg-black/30 md:bg-black/40 ${videoControls ? 'opacity-0' : 'opacity-100'} md:opacity-0 ${!videoControls && 'group-hover:opacity-100'} transition-opacity flex items-center justify-center backdrop-blur-[1px] pointer-events-none`}>
                     {item.resource_type === 'video' ? (
-                        <PlayCircle size={40} className="text-white opacity-80" />
+                        <PlayCircle  size={40} className="text-white opacity-80" />
                     ) : (
                         <ImageIcon size={32} className="text-white opacity-80" />
                     )}
@@ -146,7 +157,7 @@ const GalleryDashboard = () => {
                 </div>
             </div>
         ))}
-    </div>
+    </div> : <PageSpinner bgColor={'bg-[var(--bg-primary)]'} />}
 </div>
     );
 };

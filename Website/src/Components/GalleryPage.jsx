@@ -3,11 +3,13 @@ import { X, ChevronLeft, ChevronRight, Maximize2, Camera, PlayCircle, Video as V
 import { getGalleryData } from '../axios/adminApi';
 import { addGalleryData } from '../redux/clientSlicer';
 import { useDispatch, useSelector } from 'react-redux';
+import Spinner from './Modals/Spinner';
 
 
 const GalleryPage = () => {
   const [selectedImg, setSelectedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [spinner , setSpinner] = useState(false)
 
   const { gallery } = useSelector((state) => state.client)
   const dispatch = useDispatch()
@@ -41,13 +43,16 @@ const GalleryPage = () => {
 
   async function initializeMediaItems() {
     try {
+      setSpinner(true)
       const res = await getGalleryData()
 
       if (res?.status == 200) {
         dispatch(addGalleryData(res?.data?.data))
+        setSpinner(false)
       }
     } catch (error) {
       console.log(error?.message)
+      setSpinner(false)
     }
   }
 
@@ -76,7 +81,7 @@ const GalleryPage = () => {
 
       {/* --- CREATIVE MASONRY GRID --- */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+        {!spinner ? <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           {gallery.map((item, index) => (
             <MediaCard
               key={item._id}
@@ -85,10 +90,10 @@ const GalleryPage = () => {
               onClick={() => openModal(item, index)}
             />
           ))}
-        </div>
+        </div> : <Spinner />}
       </section>
 
-      {gallery.length === 0 && (
+      {!spinner && gallery.length === 0 && (
         <div className="text-center py-20">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-100 text-gray-400 mb-4">
             <FileText size={40} />

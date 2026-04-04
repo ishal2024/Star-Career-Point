@@ -5,7 +5,7 @@ const FloatingWhatsAppButton = () => {
   const whatsappUrl = "https://wa.me/9899608180?text=Hello%20I%20am%20interested%20in%20your%20coaching%20classes%20please%20share%20course%20details%20fees%20and%20timings";
 
   return (
-    <div className="fixed bottom-10 right-10 md:bottom-8 md:right-8 z-[999] flex items-center justify-center">
+    <div className="fixed bottom-5 right-5 md:bottom-8 md:right-8 z-[999] flex items-center justify-center">
       
       {/* --- WAVE / RIPPLE EFFECTS --- */}
       {/* First Wave */}

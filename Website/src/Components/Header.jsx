@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[var(--color-primary-dark)] py-2 shadow-lg' : 'bg-[var(--color-primary)] py-4'
+      className={`sticky top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[var(--color-primary-dark)] py-2 shadow-lg' : 'bg-[var(--color-primary)] py-4'
         }`}
     >
       {isEnquireFormOpen && <EnquireModal

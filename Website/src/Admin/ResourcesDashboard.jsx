@@ -10,14 +10,21 @@ import {
     ChevronRight,
     File
 } from 'lucide-react';
-import { addResourcesData } from '../redux/dashboardSlicer';
+import { addResourcesData, handleRefreshResource } from '../redux/dashboardSlicer';
 import { deleteDocument, getResourcesData } from '../axios/adminApi';
 import { useDispatch, useSelector } from 'react-redux';
+import FileUploadModal from './Modals/UploadModal';
+import DeleteConfirmationModal from './Modals/DeleteConfirmationModel';
+import PageSpinner from '../Components/Modals/Spinner';
 
 const ResourcesDashboard = () => {
 
     const dispatch = useDispatch()
-    const { resources } = useSelector((state) => state.dashboard)
+    const { resources , refreshResource } = useSelector((state) => state.dashboard)
+    const [isFormOpen, setFormOpen] = useState(false)
+    const [confirmModal , setConfirmModal] = useState(false)
+    const [confirmData , setConfirmData] = useState({})
+    const [spinner , setSpinner] = useState(false)
 
     function formatBytes(bytes) {
         if (bytes === 0) return "0 Bytes";
@@ -27,39 +34,43 @@ const ResourcesDashboard = () => {
         return `${value.toFixed(2)} ${sizes[i]}`;
     }
 
-    async function handleDeleteDocument(data){
-        try {
-            const res = await deleteDocument(data)
-            if(res.status == 200){
-                alert("File is deleted")
-            }
-        } catch (error) {
-            alert(error?.response?.data?.message)
-        }
-    }
-
-    const handleAddResource = () => {
-        alert("Opening PDF upload dialog...");
-    };
-
     async function initializeMediaItems() {
         try {
+            setSpinner(true)
             const res = await getResourcesData()
-
             if (res?.status == 200) {
                 dispatch(addResourcesData(res?.data?.data))
+                dispatch(handleRefreshResource(false))
+                setSpinner(false)
             }
         } catch (error) {
+            setSpinner(false)
             console.log(error?.message)
         }
     }
 
     useEffect(() => {
+        if(refreshResource)
         initializeMediaItems()
-    }, [])
+    }, [refreshResource])
 
     return (
         <div className="min-h-screen bg-[var(--bg-primary)] p-6 md:p-10 text-[var(--text-primary)]">
+
+            {isFormOpen && <FileUploadModal
+                isOpen={isFormOpen}
+                onClose={() => setFormOpen(false)}
+            />}
+
+            {confirmModal && <DeleteConfirmationModal
+                isOpen={confirmModal}
+                onClose={() => {
+                    setConfirmModal(false)
+                    setConfirmData({})
+                }}
+                data={confirmData}
+                
+            />}
 
             {/* 1. HEADER SECTION */}
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
@@ -69,7 +80,7 @@ const ResourcesDashboard = () => {
                 </div>
 
                 <button
-                    onClick={handleAddResource}
+                    onClick={() => setFormOpen(true)}
                     className="flex items-center justify-center gap-2 px-6 py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white rounded-[var(--radius-md)] transition-[var(--transition)] shadow-[var(--shadow-md)] font-medium active:scale-95"
                 >
                     <Upload size={18} />
@@ -78,11 +89,11 @@ const ResourcesDashboard = () => {
             </div>
 
             {/* 2. RESOURCES GRID */}
-            <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {!spinner ? <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
                 {/* 3. FIRST CARD (Special Add PDF Card) */}
                 <div
-                    onClick={handleAddResource}
+                    onClick={() => setFormOpen(true)}
                     className="group cursor-pointer aspect-[4/5] flex flex-col items-center justify-center border-2 border-dashed border-[var(--border)] hover:border-[var(--accent)] bg-[var(--bg-secondary)] rounded-[var(--radius-lg)] transition-[var(--transition)] hover:bg-[var(--bg-tertiary)]"
                 >
                     <div className="p-4 rounded-full bg-[var(--bg-tertiary)] group-hover:bg-[var(--accent)] transition-[var(--transition)] mb-4">
@@ -100,7 +111,10 @@ const ResourcesDashboard = () => {
                     >
                         {/* Delete Icon (Top-Right) */}
                         <button
-                            onClick={() => handleDeleteDocument({public_id : file?.public_id , resource_type : file?.resource_type})}
+                            onClick={() => {
+                                setConfirmData({ public_id: file?.public_id, resource_type: file?.resource_type })
+                                setConfirmModal(true)
+                            }}
                             className="absolute top-3 right-3 z-10 p-2 rounded-full bg-[var(--bg-primary)]/50 text-[var(--text-secondary)] hover:text-white hover:bg-[var(--danger)] backdrop-blur-md transition-[var(--transition)] md:opacity-0 group-hover:opacity-100"
                         >
                             <Trash2 size={16} />
@@ -121,8 +135,9 @@ const ResourcesDashboard = () => {
                             <h3 className="font-semibold text-[var(--text-primary)] truncate mb-1" title={file.name}>
                                 {file?.title}
                             </h3>
+                            <p className='text-[10px] text-gray-500 mb-1 font-semibold'>{file.course}</p>
                             <div className="flex items-center justify-between text-xs text-[var(--text-muted)] mb-4">
-                                <span>{formatBytes(file.size)}</span>
+                                <span>{formatBytes(file?.file_size)}</span>
                                 <span>{new Date(file.createdAt).toLocaleDateString('en-GB', {
                                     day: 'numeric',
                                     month: 'long',
@@ -149,10 +164,10 @@ const ResourcesDashboard = () => {
                         </div>
                     </div>
                 ))}
-            </div>
+            </div> : <PageSpinner bgColor={'bg-[var(--bg-primary)]'} />}
 
             {/* 5. PAGINATION */}
-            <div className="max-w-7xl mx-auto mt-16 flex items-center justify-center gap-4">
+            {/* <div className="max-w-7xl mx-auto mt-16 flex items-center justify-center gap-4">
                 <button
                     disabled
                     className="flex items-center gap-2 px-5 py-2.5 rounded-[var(--radius-md)] border border-[var(--border)] bg-[var(--bg-secondary)] text-[var(--text-muted)] cursor-not-allowed opacity-50 transition-[var(--transition)]"
@@ -167,7 +182,7 @@ const ResourcesDashboard = () => {
                     <span>Next</span>
                     <ChevronRight size={20} />
                 </button>
-            </div>
+            </div> */}
         </div>
     );
 };

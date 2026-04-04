@@ -4,6 +4,7 @@ import { getResourcesData } from '../axios/adminApi';
 import { addResourcesData } from '../redux/clientSlicer';
 import { useDispatch, useSelector } from 'react-redux';
 import { courseCategories } from '../Data/Courses';
+import PageSpinner from './Modals/Spinner';
 
 
 const ResourcesPage = () => {
@@ -12,15 +13,19 @@ const ResourcesPage = () => {
     const { resources } = useSelector((state) => state.client)
     const [filter, setFilter] = useState([])
     const [search, setSearch] = useState("")
+      const [spinner , setSpinner] = useState(false)
 
     async function initializeMediaItems() {
         try {
+            setSpinner(true)
             const res = await getResourcesData()
 
             if (res?.status == 200) {
                 dispatch(addResourcesData(res?.data?.data))
+                setSpinner(false)
             }
         } catch (error) {
+            setSpinner(false)
             console.log(error?.message)
         }
     }
@@ -106,14 +111,14 @@ const ResourcesPage = () => {
                 </header>
 
                 {/* --- 2. DOCUMENT GRID --- */}
-                <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {!spinner ? <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filter.map((doc, index) => (
                         <DocumentCard key={doc.id} doc={doc} index={index} />
                     ))}
-                </section>
+                </section> : <PageSpinner />}
 
                 {/* --- EMPTY STATE (Optional) --- */}
-                {filter.length === 0 && (
+                {!spinner && filter.length === 0 && (
                     <div className="text-center py-20">
                         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-100 text-gray-400 mb-4">
                             <FileText size={40} />

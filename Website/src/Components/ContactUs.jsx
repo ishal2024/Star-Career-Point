@@ -81,7 +81,7 @@ const ContactUs = () => {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 pt-20">
+    <main className="min-h-screen bg-gray-50 ">
 
       {/* --- PAGE HEADER (SEO Friendly) --- */}
       <section className="bg-[var(--color-primary)] py-16 md:py-24 text-white">

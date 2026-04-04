@@ -18,7 +18,7 @@ const AboutUs = () => {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 pt-20">
+    <main className="min-h-screen bg-gray-50 ">
       {/* --- SEO FRIENDLY HEADER SECTION --- */}
       <section className="bg-[var(--color-primary)] py-16 md:py-24 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -121,11 +121,11 @@ const AboutUs = () => {
               viewport={{ once: true }}
               className="bg-[var(--bg-secondary)] p-8 rounded-[var(--radius-lg)] shadow-[var(--shadow-sm)] border-l-4 border-[var(--color-primary)]"
             >
-              <h2 className="text-2xl font-bold text-[var(--color-black)] mb-4 flex items-center gap-2">
+              <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
                 <Target className="text-[var(--color-primary)]" />
                 Our Aim
               </h2>
-              <p className="text-gray-700 leading-relaxed italic">
+              <p className="text-gray-400 leading-relaxed italic">
                 "Our mission is to democratize high-quality education. We aim to provide top-tier academic coaching to students from all walks of life, ensuring that financial barriers never stand in the way of a student's dreams."
               </p>
             </motion.section>

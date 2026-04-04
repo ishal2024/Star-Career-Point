@@ -11,6 +11,8 @@ import {
 } from 'lucide-react';
 import { courseCategories } from '../../Data/Courses';
 import { uploadFile } from '../../axios/adminApi';
+import { useDispatch } from 'react-redux';
+import { handleRefreshGallery, handleRefreshResource } from '../../redux/dashboardSlicer';
 
 const FileUploadModal = ({ isOpen, onClose }) => {
     const [title, setTitle] = useState('');
@@ -21,6 +23,8 @@ const FileUploadModal = ({ isOpen, onClose }) => {
     const fileInputRef = useRef(null);
 
     if (!isOpen) return null;
+
+    const dispatch = useDispatch()
 
 
     const handleFileChange = (e) => {
@@ -58,13 +62,18 @@ const FileUploadModal = ({ isOpen, onClose }) => {
                 console.log(res?.data?.data)
                 alert("File uploaded successfully")
                 setIsUploading(false)
+                if(res?.data?.file?.resource_type == "raw")
+                    dispatch(handleRefreshResource(true))
+                else
+                    dispatch(handleRefreshGallery(true))
                 setTitle('');
                 setCourse('');
                 setFile(null);
                 setPreview(null);
+                onClose()
             }
         } catch (error) {
-            alert(error?.message)
+            alert(error?.response?.data?.message)
             console.log(error)
             setIsUploading(false)
         }
@@ -130,7 +139,7 @@ const FileUploadModal = ({ isOpen, onClose }) => {
                                 >
                                     <option value="" disabled className="bg-[var(--bg-secondary)]">Choose a course...</option>
                                     {courseCategories.map(opt => (
-                                        <option key={opt} value={opt} className="bg-[var(--bg-secondary)]">{opt?.name}</option>
+                                        <option key={opt} value={opt} className="bg-[var(--bg-secondary)]">{opt}</option>
                                     ))}
                                 </select>
                                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-[var(--text-muted)] group-hover:text-[var(--accent)] transition-colors">
