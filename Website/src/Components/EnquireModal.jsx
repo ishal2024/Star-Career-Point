@@ -47,6 +47,7 @@ const EnquireModal = ({ isOpen, onClose, subject }) => {
       }
     } catch (error) {
       setShowError({ tatus: true, message: error?.response?.data?.message })
+      console.log(error?.message)
       setLoading(false)
     }
   }

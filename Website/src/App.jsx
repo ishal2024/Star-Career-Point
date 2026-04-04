@@ -9,6 +9,7 @@ import { Outlet } from 'react-router-dom'
 import EnquireModal from './Components/EnquireModal'
 import { ToastContainer } from 'react-toastify'
 import FloatingWhatsAppButton from './Components/Modals/FloatingWhatsAppButton'
+import ScrollToTop from './Components/ScrollToTop'
 
 function App() {
 
@@ -40,7 +41,7 @@ function App() {
         newestOnTop
         theme='dark'
       />
-
+      <ScrollToTop />
       <FloatingWhatsAppButton />
     </>
   )

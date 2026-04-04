@@ -53,7 +53,7 @@ const FileUploadModal = ({ isOpen, onClose }) => {
 
         formData.append("file", file) // actual file
         formData.append("title", title)
-        formData.append("course", course?.name)
+        formData.append("course", course)
 
         try {
             console.log(formData)
