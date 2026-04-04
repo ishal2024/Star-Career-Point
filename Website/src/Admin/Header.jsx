@@ -10,7 +10,7 @@ import {
   Zap 
 } from 'lucide-react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import logo from '../../public/logo.jpeg'
+import logo from '../assets/Hero/logo2.png'
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

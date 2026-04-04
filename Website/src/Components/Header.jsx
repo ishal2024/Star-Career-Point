@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown, BookOpen, GraduationCap, Code, Microscope } from 
 import { NavLink, useNavigate } from 'react-router-dom';
 import EnquireModal from './EnquireModal';
 import { courses } from '../Data/Courses';
+import logo from '../assets/logo2.png'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,7 +39,7 @@ const Header = () => {
             onClick={() => navigate('/')}
             className="flex items-center space-x-2 text-white font-bold text-2xl cursor-pointer">
             
-              <img className='w-12 h-12 rounded-md' src="../../public/logo2.png" alt="logo" />
+              <img className='w-12 h-12 rounded-md' src={logo} alt="logo" />
             
             <span>StarPoint Classes</span>
           </div>
