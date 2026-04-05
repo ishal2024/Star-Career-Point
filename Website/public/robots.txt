@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://star-career-point.vercel.app/sitemap.xml
