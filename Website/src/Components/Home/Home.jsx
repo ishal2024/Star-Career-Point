@@ -1,5 +1,4 @@
 import React from 'react'
-import Hero from './Hero'
 import AllCourses from './AllCourses'
 import HighlightBanner from './HighlightBanner'
 import AllFacilities from './AllFacilities'
