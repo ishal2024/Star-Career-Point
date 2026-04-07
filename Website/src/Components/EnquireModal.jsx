@@ -76,7 +76,7 @@ const EnquireModal = ({ isOpen, onClose, subject }) => {
               <img className='w-12 h-12 rounded-md' src={logo} alt="logo" />
             <div>
               <h2 className="text-white font-black leading-tight tracking-tight text-lg md:text-xl">
-                StarPoint Classes
+                Star Career Point Coaching Centre
               </h2>
               <p className="text-red-100 text-[10px] uppercase font-bold tracking-widest">
                 Enquire Now Form

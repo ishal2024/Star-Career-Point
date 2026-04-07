@@ -41,7 +41,7 @@ const Header = () => {
             
               <img className='w-12 h-12 rounded-md' src={logo} alt="logo" />
             
-            <span className='w-full text-[18px]'>Star Career Point Coaching Center</span>
+            <span className='w-full text-[18px]'>Star Career Point Coaching Centre</span>
           </div>
 
           {/* Desktop Nav */}

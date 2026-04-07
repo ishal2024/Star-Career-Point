@@ -28,7 +28,7 @@ const socialLinks = [
     color: "hover:text-pink-500"
   },
   {
-    href: "https://youtube.com/your-channel",
+    href: "https://youtube.com/@starcareerpoint855?si=hqpVbqVwZr0oWdP9",
     icon: <FaYoutube size={22} />,
     label: "YouTube",
     color: "hover:text-red-500"
@@ -75,7 +75,7 @@ const socialLinks = [
             {/* Logo & Name */}
             <div className="flex items-center space-x-3 group cursor-pointer">
               <img className='w-12 h-12 rounded-md' src={logo} alt="logo" />
-              <span className="text-2xl font-black tracking-tight">StarPoint Classes</span>
+              <span className="text-2xl font-black tracking-tight">Star Career Point Coaching Centre</span>
             </div>
 
             {/* Contact Info */}
@@ -94,7 +94,7 @@ const socialLinks = [
               </div>
               <div className="flex items-center justify-center md:justify-start space-x-3 text-red-50 hover:text-white transition-colors cursor-pointer">
                 <Mail size={20} className="shrink-0" />
-                <p className="text-sm font-semibold"></p>
+                <p className="text-sm font-semibold">starcareerpoint2021@gmail.com</p>
               </div>
             </div>
 

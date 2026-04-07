@@ -32,7 +32,7 @@ const ContactUs = () => {
     {
       icon: <Mail className="text-[var(--color-primary)]" size={24} />,
       title: "Email Address",
-      details: ["info@eduboostcoaching.com"],
+      details: ["starcareerpoint2021@gmail.com"],
     },
     {
       icon: <Clock className="text-[var(--color-primary)]" size={24} />,
