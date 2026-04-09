@@ -24,8 +24,8 @@ async function enquireNowByMail(req, res) {
         const resend = new Resend(process.env.RESEND_API_KEY);
 
         const mail = {
-            from: 'onboarding@resend.dev',
-            to: process.env.YOUR_MAIL,
+            from: 'noreply@starcareerpoint.in',
+            to: 'cetan42289@fpxnet.com',
             subject: "New Enquiry",
 
             text: `
