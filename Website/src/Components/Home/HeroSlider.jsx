@@ -3,13 +3,15 @@ import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import Coaching from "../../assets/Hero/Coaching_Centre.jpeg"
 import spoken from "../../assets/Hero/Spoken_English.jpeg"
 import ielts from "../../assets/Hero/IELTS.jpeg"
+import ssc from "../../assets/Hero/SSC.jpeg"
+import sainik from "../../assets/Hero/Sainik_School.jpeg"
 
 
 const sliderData =[
   {
     id : 1,
     image: Coaching,
-    title: "Coaching Center for CBSE and other board V to XII",
+    title: "Coaching Centre for CBSE and other board V to XII",
     description: "A team of IIT graduates with 10–12 years of CBSE teaching experience, providing quality notes, assignments, and guidance for board and competitive exams."
   },
   {
@@ -24,6 +26,18 @@ const sliderData =[
     title: "Institute for IELTS / PTE",
     description: "Provides IELTS (Academic & General) and PTE coaching with expert guidance for study abroad, immigration, and visa assistance."
   },
+{
+  id: 4,
+  image: ssc,
+  title: "SSC/Delhi Police/Railway Entrance Exam",
+  description: "Provides complete coaching for SSC exams including CGL, CHSL, MTS, and GD. Covers Quantitative Aptitude, Reasoning, English, and General Awareness with regular mock tests, doubt sessions, and expert guidance to help students secure government jobs."
+},
+{
+  id: 5,
+  image: sainik,
+  title: "Sainik/Narvodya School Entrance Coaching",
+  description: "Offers specialized preparation for Sainik School entrance exams with focus on Mathematics, Intelligence, and English. Includes physical training guidance, personality development, and disciplined learning to help students succeed in military school admissions."
+}
 ];
 
 const PremiumHero = () => {
