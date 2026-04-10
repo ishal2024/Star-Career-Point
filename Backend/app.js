@@ -15,7 +15,7 @@ app.use(cookieParser())
 
 app.use(
   cors({
-    origin: ["http://localhost:5173" , "https://star-career-point.vercel.app" , "https://www.starcareerpoint.in/"],
+    origin: ["http://localhost:5173" , "https://star-career-point.vercel.app" , "https://www.starcareerpoint.in", "https://starcareerpoint.in"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
