@@ -9,14 +9,16 @@ const CourseCard = ({ course, index }) => {
   const navigate = useNavigate()
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group bg-white rounded-[var(--radius-lg)] overflow-hidden shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)] transition-all duration-300 border border-gray-100 flex flex-col h-full hover:-translate-y-2"
-    >
-      {/* Image Container */}
+    <>
+     <motion.div
+       initial={{ opacity: 0, y: 30 }}
+       whileInView={{ opacity: 1, y: 0 }}
+       viewport={{ once: true }}
+       transition={{ duration: 0.5, delay: index * 0.1 }}
+       className="group bg-white rounded-[var(--radius-lg)] overflow-hidden shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-lg)] transition-all duration-300 border border-gray-100 flex flex-col h-full hover:-translate-y-2"
+     >
+
+      
       <div className="relative overflow-hidden h-52">
         {courses.tag && (
           <span className="absolute top-4 left-4 z-20 bg-[var(--color-primary)] text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
@@ -71,6 +73,7 @@ const CourseCard = ({ course, index }) => {
         </div>
       </div>
     </motion.div>
+    </>
   );
 };
 

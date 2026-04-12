@@ -5,7 +5,7 @@ import spoken from "../../assets/Hero/Spoken_English.jpeg"
 import ielts from "../../assets/Hero/IELTS.jpeg"
 import ssc from "../../assets/Hero/SSC.jpeg"
 import sainik from "../../assets/Hero/Sainik_School.jpeg"
-
+import kinder from "../../assets/Hero/Kinder_Garden.jpeg"
 
 const sliderData =[
   {
@@ -37,7 +37,14 @@ const sliderData =[
   image: sainik,
   title: "Sainik/Narvodya School Entrance Coaching",
   description: "Offers specialized preparation for Sainik School entrance exams with focus on Mathematics, Intelligence, and English. Includes physical training guidance, personality development, and disciplined learning to help students succeed in military school admissions."
+},
+{
+  id: 5,
+  image: kinder,
+  title: "Kinder Garden Play School",
+  description: "It is run by trained professional staff. Here children learn through scientific methods and activities. It has a warm and hygienic environment."
 }
+
 ];
 
 const PremiumHero = () => {

@@ -74,7 +74,7 @@ export const courses = [
   {
     id: 2,
     name: "Class IX (CBSE & Other Boards)",
-    image: "https://images.unsplash.com/photo-1628863353691-0071c8c1874c",
+    image: "https://imgs.search.brave.com/AF94kiuudvPoq1k3SWJpTGyA-pcnIE3-1UtQboGKbyw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dGl3YXJpYWNhZGVt/eS5jb20vYXBwL3Vw/bG9hZHMvMjAyMy8w/OC9DbGFzcy05LU5D/RVJULUJvb2tzLnBu/Zw",
     description:
       "This comprehensive Class IX program builds strong fundamentals for board classes with full syllabus coverage, regular testing, and conceptual clarity.",
     price: "₹30,000",
@@ -92,7 +92,7 @@ export const courses = [
   {
     id: 3,
     name: "Class X (CBSE & Other Boards)",
-    image: "https://images.unsplash.com/photo-1631047085941-a29e9730a7e6",
+    image: "https://imgs.search.brave.com/t8JbTKBznwVzBtVfG9W7g1sqh3iDIIf8jXANzg5Pi7Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/d2FsbHBhcGVyc2Fm/YXJpLmNvbS84MS81/My9tejJvbjMuanBn",
     description:
       "Complete board preparation course with full syllabus coverage, test series, and revision strategies for excellent results.",
     price: "₹35,000",
@@ -110,7 +110,7 @@ export const courses = [
   {
     id: 4,
     name: "Class XI (PCM)",
-    image: "https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa",
+    image: "https://imgs.search.brave.com/c3jTysgWcBODlF181c32n82R7r4AlB4BpxUKbJhe8CE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9z/dGFjay1ib29rcy13/aXRoLXBlbmNpbC1o/b2xkZXItZ2xhc3Nl/cy1hZ2FpbnN0LWNo/YWxrYm9hcmRfMTgx/NjI0LTM4OTk1Lmpw/Zz9zZW10PWFpc19o/eWJyaWQmdz03NDA",
     description:
       "Advanced PCM course focusing on strong fundamentals for JEE and board preparation with deep conceptual understanding.",
     price: "₹45,000",
@@ -146,7 +146,7 @@ export const courses = [
   {
     id: 6,
     name: "Class XI (Commerce)",
-    image: "https://images.unsplash.com/photo-1708011271935-3e109df56fe0",
+    image: "https://imgs.search.brave.com/H8ClsVbuCxFOrW-hsa187lt-okoHeSmpnZglK7RzQ2Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzk5Lzll/L2Y0Lzk5OWVmNGEx/ZWZiYjZkNTIxMTFm/ZGY3NDEzYThiNWU5/LmpwZw",
     description:
       "Strong conceptual commerce program covering accounts, business, and economics with practical learning.",
     price: "₹40,000",
@@ -164,7 +164,7 @@ export const courses = [
   {
     id: 7,
     name: "Class XI (Humanities)",
-    image: "https://images.unsplash.com/photo-1620653260947-9ca7317ef82e",
+    image: "https://imgs.search.brave.com/Dimk4b8ZRCzz9EcMS3BEXvOC59-kO-pTygiOinrWwZA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzQ0LzA2/L2QxLzQ0MDZkMWMx/ZDhmZjczZmUzNzA3/NWQ0YTE5Njc3NDkw/LmpwZw",
     description:
       "Humanities course designed for analytical thinking and preparation for competitive exams.",
     price: "₹38,000",
@@ -182,7 +182,7 @@ export const courses = [
   {
     id: 8,
     name: "Class XII (PCM)",
-    image: "https://images.unsplash.com/photo-1754304342696-7c253db44456",
+    image: "https://imgs.search.brave.com/ZiBbvFbm203FhweI7J4WsyHWZ5OLIxAquHQGCNtXd00/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbHV0/dXNlZHVjYXRpb24u/Y29tL2Jsb2cvd3At/Y29udGVudC91cGxv/YWRzLzIwMjQvMTEv/REFMTCVDMiVCN0Ut/MjAyNS0wMi0yMy0w/MC40MS4zMC1BLXBy/b2Zlc3Npb25hbC1h/bmQtb3JpZ2luYWwt/bG9va2luZy10aHVt/Ym5haWwtaW1hZ2Ut/Zm9yLUNsYXNzLTEy/LU1hdGhzLU5DRVJU/LUJvb2suLVRoZS1p/bWFnZS1zaG91bGQt/cHJvbWluZW50bHkt/ZGlzcGxheS1DbGFz/cy0xMi1NYXRocy1O/Q0VSVC1pbi1iby0x/LTc2OHg0MDMud2Vi/cA",
     description:
       "This Class XII PCM program is designed for students preparing for CBSE board examinations as well as competitive exams like JEE. The course provides complete syllabus coverage with in-depth conceptual clarity, advanced problem-solving techniques, and regular test series. Students are guided with structured notes, doubt-solving sessions, and revision modules to ensure strong performance in both board and competitive exams. Special emphasis is given to numerical practice, conceptual application, and exam-oriented preparation.",
     price: "₹48,000",
@@ -272,7 +272,7 @@ export const courses = [
   {
     id: 9,
     name: "Class XII (PCB )",
-    image: "https://images.unsplash.com/photo-1674702693637-330943cdf0a1",
+    image: "https://imgs.search.brave.com/qmyfuhznFdiS0Q-zK4mYU4Xuk0Fn7IbhNLHwQWUO50U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2ZiLzQz/L2VhL2ZiNDNlYTNj/MjRhNDNlMWQ2M2M0/ZjJlZjliMDY4NDhl/LmpwZw",
     description:
       "This Class XII PCB course is designed for students preparing for board exams and medical entrance exams like NEET. The program focuses on deep conceptual clarity in Biology along with strong fundamentals in Physics and Chemistry. It includes complete syllabus coverage, regular tests, NCERT-based preparation, and revision strategies. Special attention is given to diagrams, theoretical concepts, and application-based questions.",
     price: "₹47,000",
@@ -396,7 +396,7 @@ export const courses = [
   {
     id: 11,
     name: "Class XII (Humanities)",
-    image: "https://images.unsplash.com/photo-1488628176578-4ffd5fdbc900",
+    image: "https://imgs.search.brave.com/xCG_1KOQ7MoYwQv843GN2hOHZBuDvGaz_mSEc9uKrwU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMjIw/MjgzMzk2Ny9waG90/by90aGUtZm91ci1i/YXNpYy1kaXNjaXBs/aW5lcy1hcmUtZWR1/Y2F0aW9uYWwtc29j/aW9sb2d5LXBzeWNo/b2xvZ3ktaGlzdG9y/eS1hbmQtcGhpbG9z/b3BoeS13b3JkLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1u/djdrX20xRXFnRzRn/OVFBSmloOFFNT0pp/LWV2RFR0MzdzeFRJ/aTZXeW53PQ",
     description:
       "This Class XII Humanities course is designed for students preparing for board exams and competitive exams like UPSC, CUET, and other entrance exams. The program focuses on conceptual understanding, analytical thinking, and answer-writing skills. Students are trained with structured notes, regular tests, and revision sessions to perform exceptionally well.",
     price: "₹40,000",
