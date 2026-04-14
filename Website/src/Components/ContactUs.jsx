@@ -47,7 +47,7 @@ const ContactUs = () => {
   const [address, setAddress] = useState("")
   const [message, setMessage] = useState("")
 
-   const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
 
 
   async function handleEnquireNow(e) {
@@ -70,9 +70,9 @@ const ContactUs = () => {
       }
 
       const res = await enquireNow(data)
-      if(res?.data?.status){
-          toast.success("Thank you for your enquiry! Our team will contact you shortly.")
-          setLoading(false)
+      if (res?.data?.status) {
+        toast.success("Thank you for your enquiry! Our team will contact you shortly.")
+        setLoading(false)
       }
     } catch (error) {
       toast.error(error?.response?.data?.message)
@@ -187,8 +187,8 @@ const ContactUs = () => {
                   <input
                     type="email" id="email" placeholder="rahul@gmail.com"
                     value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-red-100 outline-none transition-all"
                   />
                 </div>
@@ -198,8 +198,8 @@ const ContactUs = () => {
                   <input
                     type="text" id="address" placeholder="City, State"
                     value={address}
-                      onChange={(e) => setAddress(e.target.value)}
-                      required
+                    onChange={(e) => setAddress(e.target.value)}
+                    required
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-red-100 outline-none transition-all"
                   />
                 </div>
@@ -207,9 +207,9 @@ const ContactUs = () => {
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-semibold text-gray-700 ml-1">Your Message</label>
                   <textarea
-                  value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      required
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
                     id="message" rows="4" placeholder="How can we help you?"
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-red-100 outline-none transition-all resize-none"
                   ></textarea>
@@ -221,10 +221,10 @@ const ContactUs = () => {
                   className="w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white font-black py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-red-200 transition-all active:scale-[0.98]"
                 >
                   {!loading ? <><Send size={18} /> ENQUIRE NOW </>
-                  :
-                  <div className="flex justify-center items-center">
-                  <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-                </div>
+                    :
+                    <div className="flex justify-center items-center">
+                      <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                    </div>
                   }
                 </button>
               </form>
@@ -236,14 +236,15 @@ const ContactUs = () => {
 
       {/* --- GOOGLE MAP SECTION --- */}
       <section className="w-full px-4 sm:px-6 lg:px-8 pb-20">
+
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="max-w-7xl mx-auto overflow-hidden rounded-[var(--radius-lg)] shadow-[var(--shadow-md)] border-4 border-white"
         >
-          <div className="relative w-full h-[450px] grayscale-0 transition-all duration-700">
-            {/* Semantic Iframe Placeholder */}
+          {/* <div className="relative w-full h-[450px] grayscale-0 transition-all duration-700">
+           
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.8416655582137!2d77.12513131075612!3d28.54447848797317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1d10f4676ff7%3A0x4834698d4739e049!2sStar%20Career%20Point%20Coaching%20Centre!5e0!3m2!1sen!2sin!4v1774865455871!5m2!1sen!2sin"
               width="100%"
@@ -255,7 +256,7 @@ const ContactUs = () => {
               title="Coaching Center Location Map"
             ></iframe>
 
-            {/* Floating UI overlay on Map */}
+          
             <div className="absolute bottom-6 right-6 hidden md:block">
               <a
                 href="https://maps.app.goo.gl/ENZFT6URjBczai5R9"
@@ -266,8 +267,49 @@ const ContactUs = () => {
                 Open in Google Maps <ExternalLink size={16} />
               </a>
             </div>
+          </div> */}
+
+          <div className="max-w-7xl mx-auto bg-white rounded-2xl shadow-md overflow-hidden">
+
+            {/* 📍 Address Section */}
+            <div className="p-5">
+              <div className="flex items-start gap-3">
+                <div className="text-blue-600 text-xl">📍</div>
+
+                <div className='flex-col md:flex-row gap-3 items-center'>
+                  <p className="text-gray-700 leading-relaxed text-sm font-medium ">
+                    Dharampal Complex, Near Small Red Light, Mahipalpur, New Delhi., 110037
+                  </p>
+
+                  <a
+                    href="https://maps.app.goo.gl/ENZFT6URjBczai5R9"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-block  text-blue-600 font-semibold text-sm hover:underline"
+                  >
+                    Get Directions →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* 🗺️ Map Section */}
+            <div className="w-full h-[500px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.8416655582137!2d77.12513131075612!3d28.54447848797317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1d10f4676ff7%3A0x4834698d4739e049!2sStar%20Career%20Point%20Coaching%20Centre!5e0!3m2!1sen!2sin!4v1774865455871!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                allowFullScreen=""
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Coaching Center Location Map"
+              ></iframe>
+            </div>
+
           </div>
         </motion.div>
+
       </section>
 
     </main>
