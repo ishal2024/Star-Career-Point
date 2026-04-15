@@ -16,13 +16,13 @@ const Footer = () => {
 
 const socialLinks = [
   {
-    href: "https://wa.me/your-number",
+    href: "https://wa.me/9899608180?text=Hello%20I%20am%20interested%20in%20your%20coaching%20classes%20please%20share%20course%20details%20fees%20and%20timings",
     icon: <FaWhatsapp size={22}/>, // WhatsApp style
     label: "WhatsApp",
     color: "hover:text-green-500"
   },
   {
-    href: "https://instagram.com/your-id",
+    href: "https://www.instagram.com/star_career_point_?igsh=MWUydXQ3MTZ5cjB2Mg==",
     icon: <FaInstagram  size={22} />,
     label: "Instagram",
     color: "hover:text-pink-500"
@@ -34,7 +34,7 @@ const socialLinks = [
     color: "hover:text-red-500"
   },
   {
-    href: "https://facebook.com/your-page",
+    href: "https://www.facebook.com/share/1CBkgSJpGE/",
     icon: <FaFacebook size={22} />,
     label: "Facebook",
     color: "hover:text-blue-500"
@@ -43,11 +43,10 @@ const socialLinks = [
 
 
   const navLinks = [
-    { name: "Home", href: "#" },
+    { name: "Home", href: "/" },
     { name: "Courses", href: "#" },
-    { name: "About Us", href: "#" },
-    { name: "Contact Us", href: "#" },
-    { name: "Privacy Policy", href: "#" },
+    { name: "About Us", href: "/about" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   return (
@@ -149,7 +148,7 @@ const socialLinks = [
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-red-100 font-light tracking-wide text-center">
-              © {currentYear} <span className="font-bold">EduBoost Coaching Center</span>. All rights reserved.
+              © {currentYear} <span className="font-bold">Star Career Point Coaching Centre</span>. All rights reserved.
             </p>
 
             <div className="flex space-x-6 text-xs text-red-200 uppercase tracking-widest font-semibold">

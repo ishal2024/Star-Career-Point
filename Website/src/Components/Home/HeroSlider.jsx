@@ -35,7 +35,7 @@ const sliderData =[
 {
   id: 5,
   image: sainik,
-  title: "Sainik/Narvodya School Entrance Coaching",
+  title: "Sainik/Navodaya School Entrance Coaching",
   description: "Offers specialized preparation for Sainik School entrance exams with focus on Mathematics, Intelligence, and English. Includes physical training guidance, personality development, and disciplined learning to help students succeed in military school admissions."
 },
 {
@@ -98,7 +98,7 @@ const PremiumHero = () => {
           >
             <div className="flex items-center gap-2">
               <div className="w-12 h-[2px] bg-yellow-400"></div>
-              <span className="text-yellow-400 font-bold tracking-[0.2em] text-sm">NEW ARRIVAL</span>
+              <span className="text-yellow-400 font-bold tracking-[0.2em] text-sm">OUR COURSES</span>
             </div>
             
             <h1 className="text-4xl md:text-6xl font-black text-[var(--text-light)] leading-[1.1]">

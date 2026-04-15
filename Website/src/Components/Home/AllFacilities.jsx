@@ -30,7 +30,7 @@ const facilities = [
   },
   {
     id: 4,
-    name: "Projector Classes",
+    name: "Visual Aids",
     icon: <MonitorPlay size={40} />,
     description: "Smart Visual Learning"
   },
