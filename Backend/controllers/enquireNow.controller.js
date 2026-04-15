@@ -5,6 +5,8 @@ async function enquireNowByMail(req, res) {
     try {
         const { name, userEmail, contact, address, message } = req.body;
 
+        console.log(userEmail)
+
         // 🔹 Validations
         if (!name || !userEmail || !message) {
             return res.status(400).json({
@@ -40,7 +42,7 @@ async function enquireNowByMail(req, res) {
                     ${message}
                   `,
 
-            reply_to: userEmail,
+            replyTo: userEmail,
         };
 
         const info = await resend.emails.send(mail);
