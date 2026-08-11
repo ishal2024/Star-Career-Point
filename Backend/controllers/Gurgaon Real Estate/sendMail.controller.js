@@ -17,7 +17,7 @@ export async function sendMail(req,res){
 
         const mail = {
             from: process.env.GURGAON_REAL_ESTATE_RESEND_MAIL,
-            to: "mayomi4942@davopa.com",
+            to: "support@thegurgaonrealestate.in",
             subject: "New Enquiry",
 
             text: `
